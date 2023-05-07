@@ -32,52 +32,62 @@ const FormBox = () => {
 <Grid item xs={12} sm={6}>
   <Grid container direction="column" style={chartStyle} spacing={2}>
     <div>
-      <UserInput value={values[0]} onChange={(value) => handleValueChange(value, 0)} />
       <div>{labels[0]}</div>
+      <UserInput value={values[0]} onChange={(value) => handleValueChange(value, 0)} />
     </div>
     <div>
+    <div>{labels[1]}</div>
       <UserInput value={values[1]} onChange={(value) => handleValueChange(value, 1)} />
-      <div>{labels[1]}</div>
+      
     </div>
     <div>
+    <div>{labels[2]}</div>
       <UserInput value={values[2]} onChange={(value) => handleValueChange(value, 2)} />
-      <div>{labels[2]}</div>
+      
     </div>
     <div>
-      <UserInput value={values[3]} onChange={(value) => handleValueChange(value, 3)} />
       <div>{labels[3]}</div>
+      <UserInput value={values[3]} onChange={(value) => handleValueChange(value, 3)} />
+      
     </div>
     <div>
-      <UserInput value={values[4]} onChange={(value) => handleValueChange(value, 4)} />
       <div>{labels[4]}</div>
+      <UserInput value={values[4]} onChange={(value) => handleValueChange(value, 4)} />
+      
     </div>
     <div>
-      <UserInput value={values[5]} onChange={(value) => handleValueChange(value, 5)} />
       <div>{labels[5]}</div>
+      <UserInput value={values[5]} onChange={(value) => handleValueChange(value, 5)} />
+     
     </div>
     <div>
-      <UserInput value={values[6]} onChange={(value) => handleValueChange(value, 6)} />
       <div>{labels[6]}</div>
+      <UserInput value={values[6]} onChange={(value) => handleValueChange(value, 6)} />
+      
     </div>
     <div>
-      <UserInput value={values[7]} onChange={(value) => handleValueChange(value, 7)} />
       <div>{labels[7]}</div>
+      <UserInput value={values[7]} onChange={(value) => handleValueChange(value, 7)} />
+     
     </div>
     <div>
-      <UserInput value={values[8]} onChange={(value) => handleValueChange(value, 8)} />
       <div>{labels[8]}</div>
+      <UserInput value={values[8]} onChange={(value) => handleValueChange(value, 8)} />
+     
     </div>
     <div>
-      <UserInput value={values[9]} onChange={(value) => handleValueChange(value, 9)} />
       <div>{labels[9]}</div>
+      <UserInput value={values[9]} onChange={(value) => handleValueChange(value, 9)} />
+     
     </div>
     <div>
-      <UserInput value={values[10]} onChange={(value) => handleValueChange(value, 10)} />
       <div>{labels[10]}</div>
+      <UserInput value={values[10]} onChange={(value) => handleValueChange(value, 10)} />
+     
     </div>
     <div>
+      <div>{labels[11]}</div> 
       <UserInput value={values[11]} onChange={(value) => handleValueChange(value, 11)} />
-      <div>{labels[11]}</div>
     </div>
   </Grid>
 </Grid>
