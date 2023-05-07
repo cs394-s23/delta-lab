@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.sliders {
+  border: .25px solid black;
+  width: fit-content;
+  padding: 10px 45px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  height: 700px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

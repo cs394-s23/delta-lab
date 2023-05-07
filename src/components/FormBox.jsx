@@ -26,12 +26,23 @@ const FormBox = () => {
   const handleValueChange = (newValue, index) => {
     setValues(values.map((value, i) => (i === index ? newValue : value)));
   };
+  const arr = [0,1,2,3,4,5,6,7,8,9,10,11]
 
   return (
     <Grid container spacing={2}>
+  
 <Grid item xs={12} sm={6}>
   <Grid container direction="column" style={chartStyle} spacing={2}>
-    <div>
+    <div className="skillsList">
+    {labels.map((key, i) => (
+      <div className="sliders">
+        <div>{key}</div>
+        {console.log(key)}
+        <UserInput value={values[i]} onChange={(value) => handleValueChange(value, i)} />
+      </div>
+    ))}
+    </div>
+    {/* <div>
       <div>{labels[0]}</div>
       <UserInput value={values[0]} onChange={(value) => handleValueChange(value, 0)} />
     </div>
@@ -88,7 +99,7 @@ const FormBox = () => {
     <div>
       <div>{labels[11]}</div> 
       <UserInput value={values[11]} onChange={(value) => handleValueChange(value, 11)} />
-    </div>
+    </div> */}
   </Grid>
 </Grid>
 
