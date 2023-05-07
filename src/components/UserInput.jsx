@@ -15,9 +15,9 @@ export default function UserInput(props) {
         aria-label="Score"
         value={value}
         onChange={handleSliderChange}
-        valueLabelDisplay="auto"
+        valueLabelDisplay="off"
         step={1}
-        marks
+        marks = {[{value:0, label:"foundational"}, {value:5, label:"mature"}, {value:10, label:"proficient"}]}
         min={0}
         max={10}
         getAriaValueText={(value) => `${value} out of 10`}
