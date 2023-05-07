@@ -1,13 +1,15 @@
 
 import RadarChart from './components/RadarChart';
 import UserInput from './components/UserInput';
+import FormBox from './components/FormBox';
 
 function App() {
   return (
     <div>
      
       {/* <RadarChart/> */}
-      <UserInput/>
+      {/* <UserInput/> */}
+      <FormBox></FormBox>
     </div>
   );
 }

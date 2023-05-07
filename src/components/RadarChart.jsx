@@ -1,10 +1,39 @@
 import React from "react";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import ReactApexChart from "react-apexcharts";
+import FormBox from "./FormBox";
 
 const RadarChart = (props) => {
+  const [data, setData] = useState(props.data)
+  const myLabels = [
+    "Professionalism",
+    "Integrity/Trustworthiness",
+    "Treat others with respect/courtesy",
+    "Listen Attentively & Respectfully",
+    "Respond Promptly",
+    "Multitasking",
+    "Using & Evaluating Tech Tools",
+    "Adapting Work Habits",
+    "Legal Research",
+    "Identity & Gather Facts and Legal Issues",
+    "Draft Pleadings Motions Briefs",
+    "Request/Produce Discovery",
+  ]
+  
+  useEffect(() => {
+    setData(props.data);
+  }, [props.data]);
+
+  console.log(data)
   const config = {
     options: {
+      scale: {
+        ticks: {
+          beginAtZero: true,
+          max: 10,
+          stepSize: 1
+        }
+      },
       chart: {
         dropShadow: {
           enabled: true,
@@ -13,22 +42,8 @@ const RadarChart = (props) => {
           top: 1
         }
       },
-    
       colors: ["#bf8e35", "#292318"],
-      labels: [
-        "People: Professionalism",
-        "People: Integrity/Trustworthiness",
-        "People: Treat others with respect/courtesy",
-        "People: Listen Attentively & Respectfully",
-        "Process: Respond Promptly",
-        "Process: Multitasking",
-        "Process: Using & Evaluating Tech Tools",
-        "Process: Adapting Work Habits",
-        "Practice: Legal Research",
-        "Practice: Identity & Gather Facts and Legal Issues",
-        "Practice: Draft Pleadings Motions Briefs",
-        "Practice: Request/Produce Discovery",
-      ],
+      labels: myLabels,
       stroke: {
         width: 1
       },
@@ -42,18 +57,20 @@ const RadarChart = (props) => {
     series: [
       {
         name: "Current",
-        data: [7, 8, 7, 6, 5, 4, 3, 2, 5, 9, 8, 7]
+        data: data
       },
       {
         name: "Future",
-        data: [9,10,9, 8, 9, 8, 7, 8, 10, 9, 8, 9]
+        data: [9, 10, 9, 10, 8, 9, 10, 9, 10, 7, 10, 8]
       }
     ]
   };
+  
   // const data = {props.data}
       
 
   return (
+    
     <ReactApexChart
       options={config.options}
       series={config.series}
