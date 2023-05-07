@@ -1,7 +1,8 @@
 import React from "react";
+import {useState} from "react";
 import ReactApexChart from "react-apexcharts";
 
-const RadarChart = () => {
+const RadarChart = (props) => {
   const config = {
     options: {
       chart: {
@@ -12,6 +13,7 @@ const RadarChart = () => {
           top: 1
         }
       },
+    
       colors: ["#bf8e35", "#292318"],
       labels: [
         "People: Professionalism",
@@ -48,6 +50,8 @@ const RadarChart = () => {
       }
     ]
   };
+  // const data = {props.data}
+      
 
   return (
     <ReactApexChart
