@@ -46,7 +46,7 @@ export async function getResourcesBySkill(skill) {
       paths.push(resource.path);
     });
 
-    console.log(paths);
+    //console.log(paths);
 
     return paths;
   } catch (error) {

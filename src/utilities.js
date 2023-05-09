@@ -36,8 +36,9 @@ export async function getTop5Resources(skills) {
 
     const top5 = Object.keys(sortedScores).slice([0, Math.min(4, sortedScores.length)]);
 
-    console.log("top5");
-    console.log(top5);
+    console.log("top5", top5);
+    
+
 
     return top5;
 }

@@ -1,5 +1,7 @@
-.body {
-  overflow: scroll;
+main {
+  width : 100vw;
+
+
 }
 .sliders {
   border: .25px solid black;
@@ -22,6 +24,15 @@
 
 .playlist {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  height:20vh;
+  align-items: center;
+  width: 100%;
+  padding: 25px;
+}
+.resource{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
 }
