@@ -15,17 +15,19 @@ for skill in skills
 
 */
 export async function getTop5Resources(skills) {
-    var scores = {};
-    skills.map(async (skill) => {
-        let resources = await getResourcesBySkill(skill);
+    const scores = {};
+    await Promise.all(skills.map(async (skill) => {
+        const resources = await getResourcesBySkill(skill);
         resources.map( (res) => {
             if (scores[res]) {
                 scores[res] +=1;
             } else {
                 scores[res] = 1;
             }
-        })
-    })
+        });
+    }));
+
+    console.log("unsorted", scores)
 
     const sortedScores = Object.entries(scores)
         .sort((a, b) => b[1] - a[1])
