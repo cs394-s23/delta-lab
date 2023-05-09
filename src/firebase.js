@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { initializeFirestore, doc, getDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,7 +21,52 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+
 let settings = {}
 export const db = initializeFirestore(app, settings)
 
 // firebase querying and finding data goes below...
+
+/*
+skills: 0-11
+returns array of refs [ref1, ref2, ...]
+*/
+export async function getResourcesBySkill(skill) {
+  try {
+    const docRef = doc(db, "skills", skill);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.data()) {
+      return null;
+    }
+
+    let paths = [];
+
+    docSnap.data().resources.forEach((resource) => {
+      paths.push(resource.path);
+    });
+
+    console.log(paths);
+
+    return paths;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+export async function getResourceByPath(path) {
+  try {
+    const docRef = doc(db, path);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.data()) {
+      return null;
+    }
+
+    return docSnap.data();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
