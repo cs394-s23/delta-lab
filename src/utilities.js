@@ -27,8 +27,6 @@ export async function getTop5Resources(skills) {
         });
     }));
 
-    console.log("unsorted", scores)
-
     const sortedScores = Object.entries(scores)
         .sort((a, b) => b[1] - a[1])
         .reduce((obj, [key, value]) => {
@@ -36,7 +34,6 @@ export async function getTop5Resources(skills) {
             return obj;
     }, {});
 
-    console.log("sorted scores", sortedScores);
     const top5 = Object.keys(sortedScores).slice([0, Math.min(4, sortedScores.length)]);
 
     console.log("top5");
