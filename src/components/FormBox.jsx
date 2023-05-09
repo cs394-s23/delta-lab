@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
 import UserInput from './UserInput';
 import RadarChart from './RadarChart';
+import Playlist from './Playlist';
 
 const FormBox = () => {
-  const [values, setValues] = useState([5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]);
+  const [values, setValues] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const chartStyle = {
     marginTop: '20%',
     marginLeft: '20%'
@@ -28,6 +29,21 @@ const FormBox = () => {
   };
   const arr = [0,1,2,3,4,5,6,7,8,9,10,11]
 
+  const sliderdict = {}
+  for (let i = 0; i < values.length; i++){
+    sliderdict[i] = values[i]
+  }
+
+  console.log("DICT", sliderdict)
+
+  const sortedValues = Object.entries(sliderdict).sort((a, b) => a[1] - b[1]);
+
+  console.log("SORTED", sortedValues)
+  const lowestKeys = sortedValues
+    .slice(0,3)
+    .map(entry => entry[0])
+  console.log("LOWEST", lowestKeys)
+
   return (
     <Grid container spacing={2}>
   
@@ -49,6 +65,7 @@ const FormBox = () => {
         <RadarChart 
         data={values} />
       </Grid>
+      <Playlist leastValues={lowestKeys}/>
     </Grid>
   );
 };

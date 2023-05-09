@@ -6,10 +6,12 @@ import { Grid, Paper, Typography } from '@mui/material';
 
 export default function Playlist(props) {
   const [resources, setResources] = useState([])
+
+  console.log("INPUT", props.leastValues)
   
   useEffect(() => {
     async function fetchResources() {
-      const fetched_resources = await getTop5Resources(["0", "1", "7"]);
+      let fetched_resources = await getTop5Resources(props.leastValues);
       
       let data = []
       for (let i = 0; i < fetched_resources.length; i++) {
@@ -20,7 +22,7 @@ export default function Playlist(props) {
       console .log("data", data, data.length)
     }
     fetchResources();
-  }, []);
+  }, [props.leastValues]);
   
   //console.log("outside", resources, resources.length)
 

@@ -12,7 +12,6 @@ function App() {
   return (
    <Grid container spacing={3}>
       <FormBox></FormBox>
-      <Playlist/>
     </Grid>
 
      
