@@ -24,14 +24,45 @@ export default function Playlist(props) {
     fetchResources();
   }, [props.leastValues]);
   
-  //console.log("outside", resources, resources.length)
+  const skills = [
+    "Professionalism",
+    "Integrity/Trustworthiness",
+    "Treat others with respect/courtesy",
+    "Listen Attentively & Respectfully",
+    "Respond Promptly",
+    "Multitasking",
+    "Using & Evaluating Tech Tools",
+    "Adapting Work Habits",
+    "Legal Research",
+    "Identity & Gather Facts and Legal Issues",
+    "Draft Pleadings Motions Briefs",
+    "Request/Produce Discovery",
+  ]
 
 
   return (
     <div className="playlist">
+    <div className = "playlist-header resources">
+      <p>Resource</p>
+      <p>Skills</p>
+      <p>Media Type</p>
+    </div>
+    <hr/>
     {resources.map((resource) => (
-      <div className="resource">
-        <h3>{resource.name}</h3>
+      <div className="resources">
+        <div className = "resource-name" >
+          <a href = {resource.link}>
+            <p>{resource.name}</p>
+          </a>   
+        </div>
+        <ul className="resource-skills">
+          {resource.skills.map((bool, index) => (
+            <li className="skills-checkbox">
+              {bool ? skills[index] : ''}
+            </li>
+          ))}
+        </ul>
+        <div>{resource.media}</div>
       </div>
     ))}
     </div>
