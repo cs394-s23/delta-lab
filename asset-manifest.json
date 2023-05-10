@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/delta-lab/static/css/main.52ecbdc1.css",
+    "main.js": "/delta-lab/static/js/main.84f52f3e.js",
+    "static/js/787.ee8d76f4.chunk.js": "/delta-lab/static/js/787.ee8d76f4.chunk.js",
+    "index.html": "/delta-lab/index.html",
+    "main.52ecbdc1.css.map": "/delta-lab/static/css/main.52ecbdc1.css.map",
+    "main.84f52f3e.js.map": "/delta-lab/static/js/main.84f52f3e.js.map",
+    "787.ee8d76f4.chunk.js.map": "/delta-lab/static/js/787.ee8d76f4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52ecbdc1.css",
+    "static/js/main.84f52f3e.js"
+  ]
+}
