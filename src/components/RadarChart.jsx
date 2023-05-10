@@ -27,31 +27,24 @@ const RadarChart = (props) => {
   console.log(data)
   const config = {
     options: {
-      scale: {
-        ticks: {
-          beginAtZero: true,
-          max: 10,
-          stepSize: 1
-        }
-      },
       chart: {
         dropShadow: {
           enabled: true,
-          blur: 1,
-          left: 1,
-          top: 1
+          blur: 5,
+          left: 5,
+          top: 5
         }
       },
       colors: ["#bf8e35", "#292318"],
       labels: myLabels,
       stroke: {
-        width: 1
+        width: 2
       },
       fill: {
         opacity: 0
       },
       markers: {
-        size: 2
+        size: 4
       }
     },
     series: [
