@@ -40,6 +40,8 @@ export default function Playlist(props) {
   ]
 
 
+  if (resources){
+  console.log(resources)
   return (
     <div className="playlist">
     <div className = "playlist-header resources">
@@ -49,6 +51,7 @@ export default function Playlist(props) {
     </div>
     <hr/>
     {resources.map((resource) => (
+      (resource &&
       <div className="resources">
         <div className = "resource-name" >
           <a href = {resource.link}>
@@ -63,9 +66,9 @@ export default function Playlist(props) {
           ))}
         </ul>
         <div>{resource.media}</div>
-      </div>
+      </div>)
     ))}
     </div>
-
-  )
+  );
+        }
 }
