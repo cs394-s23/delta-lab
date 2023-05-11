@@ -8,8 +8,8 @@ const DeltaPopUp = ({ category, percentage, skills, centroid, onClose }) => {
 
     const popupStyle = {
       position: "absulte",
-      top: centroid[0] + "px",
-      left: centroid[1] + "px",
+      top: centroid[1] + "px",
+      left: centroid[0] + "px",
       transform: "translate(-50%, -50%)"
     }
 

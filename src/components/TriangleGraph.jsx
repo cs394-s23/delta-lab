@@ -10,8 +10,8 @@ const TriangleGraph = () => {
   const colors = ["#4CABE1", "#0967A4", "#10946A"]
 
   const data = [
-    { category: "The People", percentage: 0, ideal_per: 38, skills: ["Respond promptly (91%)", "Multitasking (75%)", "High-quality work product (70%)", "Adapting work habits (72%)"] },
-    { category: "The Practice", percentage: 15, ideal_per: 29, skills: ["Respond promptly (91%)", "Multitasking (75%)", "High-quality work product (70%)", "Adapting work habits (72%)"] },
+    { category: "The People", percentage: 0, ideal_per: 38, skills: ["Professionalism (95%)", "Integrity/trustworthiness (92%)", "Treat others with respect/courtesy (92%)", "Listen attentively and respectfully (91%)"] },
+    { category: "The Practice", percentage: 15, ideal_per: 29, skills: ["Legal research (82%)", "Identify/gather facts and legal issues (72%)", "Draft pleadings, motions, and briefs (69%)", "Request/produce discovery (64%)"] },
     { category: "The Process", percentage: 30, ideal_per: 32, skills: ["Respond promptly (91%)", "Multitasking (75%)", "High-quality work product (70%)", "Adapting work habits (72%)"] },
   ];
 
@@ -102,25 +102,17 @@ const TriangleGraph = () => {
     .attr("data-centroid", centroid)
 );
 
-
-
-    // Draw the lines connecting vertices to the point
-    // vertices.forEach((v, i) => {
-    //   const linePath = d3.path();
-    //   linePath.moveTo(point[0], point[1]);
-    //   linePath.lineTo(v[0], v[1]);
-
-    //   svg
-    //     .append("path")
-    //     .attr("d", linePath)
-    //     .attr("stroke", colorScale(data[i].category));
-    // });
-
     // draw the text
     vertices.forEach((v, i) => {
       const v2 = vertices[(i + 1) % 3];
       const labelPos = [(v[0] + v2[0]) / 2, (v[1] + v2[1]) / 2];
-    
+      
+      // calculate the angle of the edge
+      const dx = v2[0] - v[0];
+      const dy = v2[1] - v[1];
+      const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+      if ( i == 1) {
       const label = svg
         .append("text")
         .attr("x", labelPos[0])
@@ -129,12 +121,39 @@ const TriangleGraph = () => {
         .text(data[i].category)
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "central")
-        .attr("font-size", "20px")
-        .attr("font-weight", "bold")
-        .attr("fill", "#000000");
+        .attr("font-size", "36px")
+        .attr("fill", "#000000")
+        .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(-75, 20)`);
+      }
+      else if ( i == 0) {
+        const label = svg
+          .append("text")
+          .attr("x", labelPos[0])
+          .attr("y", labelPos[1])
+          .attr('dy', 15)
+          .text(data[i].category)
+          .attr("text-anchor", "middle")
+          .attr("alignment-baseline", "central")
+          .attr("font-size", "36px")
+          .attr("fill", "#000000")
+          .attr("transform", `rotate(${angle+180}, ${labelPos[0]}, ${labelPos[1]}) translate(75, -50)`);
+        }
+      else {
 
-
+          const label = svg
+            .append("text")
+            .attr("x", labelPos[0])
+            .attr("y", labelPos[1])
+            .attr('dy', 15)
+            .text(data[i].category)
+            .attr("text-anchor", "middle")
+            .attr("alignment-baseline", "central")
+            .attr("font-size", "36px")
+            .attr("fill", "#000000")
+            .attr("transform", `rotate(${angle+180}, ${labelPos[0]}, ${labelPos[1]}) translate(75, -50)`);
+      }
     });
+    
 
     svg.selectAll(".sub-triangle")
     .on("mouseover", function() {
