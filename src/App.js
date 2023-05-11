@@ -4,7 +4,7 @@ import FormBox from './components/FormBox';
 import './App.css';
 import Playlist from './components/Playlist';
 import { Grid } from '@mui/material';
-import TriangleGraph from './components/TriangleGraph';
+import HomePage from './components/HomePage';
 
 import {getResourcesBySkill, getResourceByPath} from './firebase.js';
 
@@ -12,11 +12,11 @@ function App() {
 
   return (
     <>
+    <HomePage/>
     <Grid container spacing={3}>
     <FormBox></FormBox>
     </Grid>
     
-    <TriangleGraph/>
   </>
    
 

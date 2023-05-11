@@ -1,18 +1,22 @@
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import ReactDOM from "react-dom";
+import DeltaPopUp from "./DeltaPopUp.jsx";
 
 const TriangleGraph = () => {
   const ref = useRef(null);
 
+  const colors = ["#4CABE1", "#0967A4", "#10946A"]
+
   const data = [
-    { category: "The People", percentage: 0, ideal_per: 38 },
-    { category: "The Practice", percentage: 15, ideal_per: 29 },
-    { category: "The Process", percentage: 30, ideal_per: 32 },
+    { category: "The People", percentage: 0, ideal_per: 38, skills: ["Respond promptly (91%)", "Multitasking (75%)", "High-quality work product (70%)", "Adapting work habits (72%)"] },
+    { category: "The Practice", percentage: 15, ideal_per: 29, skills: ["Respond promptly (91%)", "Multitasking (75%)", "High-quality work product (70%)", "Adapting work habits (72%)"] },
+    { category: "The Process", percentage: 30, ideal_per: 32, skills: ["Respond promptly (91%)", "Multitasking (75%)", "High-quality work product (70%)", "Adapting work habits (72%)"] },
   ];
 
   useEffect(() => {
     const width = 500;
-    const height = 400;
+    const height = 375;
 
     const vertices = [
       [width / 2, 50],
@@ -73,13 +77,14 @@ const TriangleGraph = () => {
 
       return {
         path,
-        fill: colorScale(data[i].category),
+        fill: colors[i],
         category: data[i].category,
         percentage: data[i].ideal_per,
+        skills: data[i].skills
       };
     });
 
-    subTrianglePaths.forEach(({ path, fill, category, percentage }) =>
+    subTrianglePaths.forEach(({ path, fill, category, percentage, skills }) =>
   svg
     .append("path")
     .attr("d", path)
@@ -87,6 +92,7 @@ const TriangleGraph = () => {
     .attr("class", "sub-triangle")
     .attr("data-category", category)
     .attr("data-percentage", percentage)
+    .attr("data-skills", skills)
 );
 
 
@@ -118,7 +124,7 @@ const TriangleGraph = () => {
         .attr("alignment-baseline", "central")
         .attr("font-size", "20px")
         .attr("font-weight", "bold")
-        .attr("fill", colorScale(data[i].category));
+        .attr("fill", "#000000");
 
 
     });
@@ -131,9 +137,14 @@ const TriangleGraph = () => {
       d3.select(this).attr("fill", d3.color(d3.select(this).attr("fill")).brighter());
     })
     .on("click", function() {
+      console.log("CLICKED")
       const category = d3.select(this).attr("data-category");
       const percentage = d3.select(this).attr("data-percentage");
-      alert(`Category: ${category}\nPercentage: ${percentage}%`);
+      const skills = d3.select(this).attr("data-skills");
+      const popupContainer = document.createElement('div');
+      popupContainer.id = 'popup';
+      document.body.appendChild(popupContainer);
+      ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} onClose={() => popupContainer.remove()} />, popupContainer);
     });
 
   }, [data]);
