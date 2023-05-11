@@ -1,9 +1,5 @@
 .popup {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,22 +8,24 @@
   .popup-content {
     background-color: rgb(238, 238, 238);
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
   }
   
   .popup h2 {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 10px;
   }
   
   .popup p {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 20px;
   }
   
   .popup button {
-    background-color: #4cabd6;
+    background-color: #000000;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;

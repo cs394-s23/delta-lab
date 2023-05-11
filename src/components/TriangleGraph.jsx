@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import ReactDOM from "react-dom";
 import DeltaPopUp from "./DeltaPopUp.jsx";
+import "./styles/HomePage.css"
 
 const TriangleGraph = () => {
   const ref = useRef(null);
@@ -15,8 +16,12 @@ const TriangleGraph = () => {
   ];
 
   useEffect(() => {
-    const width = 500;
-    const height = 375;
+    const width = 650;
+    const height = 500;
+
+    if (!d3.select(ref.current).select("svg").empty()) {
+      return; // If the SVG element already exists, don't do anything
+    }
 
     const vertices = [
       [width / 2, 50],
@@ -80,11 +85,12 @@ const TriangleGraph = () => {
         fill: colors[i],
         category: data[i].category,
         percentage: data[i].ideal_per,
-        skills: data[i].skills
+        skills: data[i].skills,
+        centroid: centroid
       };
     });
 
-    subTrianglePaths.forEach(({ path, fill, category, percentage, skills }) =>
+    subTrianglePaths.forEach(({ path, fill, category, percentage, skills, centroid }) =>
   svg
     .append("path")
     .attr("d", path)
@@ -93,6 +99,7 @@ const TriangleGraph = () => {
     .attr("data-category", category)
     .attr("data-percentage", percentage)
     .attr("data-skills", skills)
+    .attr("data-centroid", centroid)
 );
 
 
@@ -142,14 +149,15 @@ const TriangleGraph = () => {
       const percentage = d3.select(this).attr("data-percentage");
       const skills = d3.select(this).attr("data-skills");
       const popupContainer = document.createElement('div');
+      const centroid = d3.select(this).attr("data-centroid");
       popupContainer.id = 'popup';
       document.body.appendChild(popupContainer);
-      ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} onClose={() => popupContainer.remove()} />, popupContainer);
+      ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} centroid = {centroid} onClose={() => popupContainer.remove()} />, popupContainer);
     });
 
   }, [data]);
 
-  return <div ref={ref}></div>;
+  return <div className = "triangle-graph" ref={ref}></div>;
 };
 
 export default TriangleGraph;
