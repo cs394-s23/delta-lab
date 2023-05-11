@@ -5,9 +5,9 @@ const TriangleGraph = () => {
   const ref = useRef(null);
 
   const data = [
-    { category: "The People", percentage: 0 },
-    { category: "The Practice", percentage: 15 },
-    { category: "The Process", percentage: 30 },
+    { category: "The People", percentage: 0, ideal_per: 38 },
+    { category: "The Practice", percentage: 15, ideal_per: 29 },
+    { category: "The Process", percentage: 30, ideal_per: 32 },
   ];
 
   useEffect(() => {
@@ -75,7 +75,7 @@ const TriangleGraph = () => {
         path,
         fill: colorScale(data[i].category),
         category: data[i].category,
-        percentage: data[i].percentage,
+        percentage: data[i].ideal_per,
       };
     });
 
