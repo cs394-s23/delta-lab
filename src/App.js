@@ -4,19 +4,24 @@ import FormBox from './components/FormBox';
 import './App.css';
 import Playlist from './components/Playlist';
 import { Grid } from '@mui/material';
+import TriangleGraph from './components/TriangleGraph';
 
 import {getResourcesBySkill, getResourceByPath} from './firebase.js';
 
 function App() {
 
   return (
-   <Grid container spacing={3}>
-      <FormBox></FormBox>
+    <>
+    <Grid container spacing={3}>
+    <FormBox></FormBox>
     </Grid>
+    
+    <TriangleGraph/>
+  </>
+   
 
      
 
-      
     
   );
 }

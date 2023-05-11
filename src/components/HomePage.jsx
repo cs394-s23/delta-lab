@@ -1,0 +1,1 @@
+// homepage component for delta model
