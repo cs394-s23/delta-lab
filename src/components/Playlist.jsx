@@ -9,8 +9,8 @@ import { faBook, faLaptopFile, faAngleUp, faAngleDown, faFileLines, faBookmark} 
 export default function Playlist(props) {
   const [resources, setResources] = useState([])
 
-  console.log("INPUT", props.leastValues)
-  
+  // console.log("INPUT", props.leastValues)
+  const threeSkills = props.leastValues
   useEffect(() => {
     async function fetchResources() {
       let fetched_resources = await getTop5Resources(props.leastValues);
@@ -21,7 +21,6 @@ export default function Playlist(props) {
         data.push(resource);
       }
       setResources(data);
-      console .log("data", data, data.length)
     }
     fetchResources();
   }, [props.leastValues]);
@@ -57,15 +56,7 @@ export default function Playlist(props) {
       setIsExpanded(!isExpanded);
     }
 
-    function skillsColor(bool, index) {
-      if (bool) {
-        // If the item has the current skill, return a bookmark icon with the corresponding color
-        console.log("u got her")
-        return <FontAwesomeIcon icon={faBookmark} style={{ color: skillColors[index] }} size = "2x"/>;
-      } else {
-        return null;
-      }
-    }
+
     return (
       <div className="resource">
         <div className = "wrap-left">
@@ -78,13 +69,12 @@ export default function Playlist(props) {
         </div>
         <div className = "wrap-right">
           <div className = "container">
-            {resource.skills.map((bool, index) => (
+            {threeSkills.map((area) => (
               <div className="bookmark">
-                {skillsColor(bool, index)}
+                <FontAwesomeIcon icon={faBookmark} style={{ color: skillColors[area]}} size = "2x"/>
               </div> 
             ))}
           </div>
-          
           <button className = "expand-btn" onClick = {handleClick}>
             <FontAwesomeIcon icon={isExpanded ? faAngleDown : faAngleUp} size="2x"/>
           </button>
@@ -95,7 +85,6 @@ export default function Playlist(props) {
 
 
   if (resources){
-  console.log(resources)
   return (
     <div className="playlist">
       <div>
@@ -111,11 +100,11 @@ export default function Playlist(props) {
       <div className = "playlist-header">
         <h1>Here are your top 5 resources...</h1>
       </div>
-      {/* <hr/> */}
       {resources.map((resource) => (
         (resource &&
-        <Resource data = {resource}/>
-      )))}
+          <Resource data = {resource}/>
+      )
+      ))}
     </div>
   );
   }
