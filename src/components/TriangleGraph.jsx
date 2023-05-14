@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import ReactDOM from "react-dom";
 import DeltaPopUp from "./DeltaPopUp.jsx";
 import "./styles/HomePage.css"
+import { color } from "@mui/system";
 
 const TriangleGraph = () => {
   const ref = useRef(null);
@@ -10,9 +11,9 @@ const TriangleGraph = () => {
   const colors = ["#4CABE1", "#0967A4", "#10946A"]
 
   const data = [
-    { category: "The People", percentage: 0, ideal_per: 38, skills: ["Professionalism (95%)", "Integrity/trustworthiness (92%)", "Treat others with respect/courtesy (92%)", "Listen attentively and respectfully (91%)"] },
-    { category: "The Practice", percentage: 15, ideal_per: 29, skills: ["Legal research (82%)", "Identify/gather facts and legal issues (72%)", "Draft pleadings, motions, and briefs (69%)", "Request/produce discovery (64%)"] },
-    { category: "The Process", percentage: 30, ideal_per: 32, skills: ["Respond promptly (91%)", "Multitasking (75%)", "High-quality work product (70%)", "Adapting work habits (72%)"] },
+    { category: "The People", percentage: 0, ideal_per: 38, skills: ["Professionalism (95%)", "Integrity/trustworthiness (92%)", "Treat others with respect/courtesy (92%)", "Listen attentively and respectfully (91%)"], color: "#4CABE1"},
+    { category: "The Practice", percentage: 15, ideal_per: 29, skills: ["Legal research (82%)", "Identify/gather facts and legal issues (72%)", "Draft pleadings motions and briefs (69%)", "Request/produce discovery (64%)"], color: "#0967A4" },
+    { category: "The Process", percentage: 30, ideal_per: 32, skills: ["Respond promptly (91%)", "Multitasking (75%)", "High-quality work product (70%)", "Adapting work habits (72%)"], color: "#10946A" },
   ];
 
   useEffect(() => {
@@ -86,11 +87,12 @@ const TriangleGraph = () => {
         category: data[i].category,
         percentage: data[i].ideal_per,
         skills: data[i].skills,
-        centroid: centroid
+        centroid: centroid,
+        color: data[i].color,
       };
     });
 
-    subTrianglePaths.forEach(({ path, fill, category, percentage, skills, centroid }) =>
+    subTrianglePaths.forEach(({ path, fill, category, percentage, skills, centroid, color }) =>
   svg
     .append("path")
     .attr("d", path)
@@ -100,6 +102,7 @@ const TriangleGraph = () => {
     .attr("data-percentage", percentage)
     .attr("data-skills", skills)
     .attr("data-centroid", centroid)
+    .attr("data-color", color)
 );
 
     // draw the text
@@ -169,9 +172,10 @@ const TriangleGraph = () => {
       const skills = d3.select(this).attr("data-skills");
       const popupContainer = document.createElement('div');
       const centroid = d3.select(this).attr("data-centroid");
+      const color = d3.select(this).attr("data-color");
       popupContainer.id = 'popup';
       document.body.appendChild(popupContainer);
-      ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} centroid = {centroid} onClose={() => popupContainer.remove()} />, popupContainer);
+      ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} centroid = {centroid} color = {color} onClose={() => popupContainer.remove()} />, popupContainer);
     });
 
   }, [data]);

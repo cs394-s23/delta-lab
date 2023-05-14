@@ -1,16 +1,16 @@
 import React from "react";
 import "./styles/DeltaPopUp.css";
 
-const DeltaPopUp = ({ category, percentage, skills, centroid, onClose }) => {
+const DeltaPopUp = ({ category, percentage, skills, centroid, color, onClose }) => {
   console.log("CENTROID", centroid)
   centroid = centroid.split(",")
+  console.log(color)
     skills = skills.split(",")
 
     const popupStyle = {
-      position: "absulte",
-      top: centroid[1] + "px",
-      right: centroid[0] + "px",
-      transform: "translate(-50%, -50%)"
+      position: "absolute",
+      transform: "translate(-50%, -50%)",
+      backgroundColor: color
     }
 
   return (
