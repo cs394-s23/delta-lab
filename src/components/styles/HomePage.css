@@ -1,5 +1,5 @@
 .triangle-graph {
-    background-color: rgb(238, 238, 244);
+    width: fit-content;
     /* i really cant figure out why this spans the whole screen, i want it to just be my triangle */
 }
 
@@ -46,3 +46,32 @@
     justify-content: center;
   }
 
+.home-page {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(250, 250, 250);
+}
+
+.home-content {
+    display: flex;
+    justify-content: center;
+    padding-top: 10vh;
+}
+
+.text-content {
+    padding: 25px;
+    width: 35%;
+}
+
+.text-content p {
+    line-height: 2;
+    font-family: 'Montserrat', sans-serif;
+    font-size : 24px;
+}
+
+.text-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
