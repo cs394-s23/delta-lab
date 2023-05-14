@@ -124,6 +124,8 @@ const TriangleGraph = () => {
         .text(data[i].category)
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "central")
+        .attr("font-family", "Montserrat, sans-serif")
+        .attr("font-weight", "light")
         .attr("font-size", "36px")
         .attr("fill", "#000000")
         .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(-75, 20)`);
@@ -137,6 +139,8 @@ const TriangleGraph = () => {
           .text(data[i].category)
           .attr("text-anchor", "middle")
           .attr("alignment-baseline", "central")
+          .attr("font-family", "Montserrat, sans-serif")
+          .attr("font-weight", "light")
           .attr("font-size", "36px")
           .attr("fill", "#000000")
           .attr("transform", `rotate(${angle+180}, ${labelPos[0]}, ${labelPos[1]}) translate(75, -50)`);
@@ -151,6 +155,8 @@ const TriangleGraph = () => {
             .text(data[i].category)
             .attr("text-anchor", "middle")
             .attr("alignment-baseline", "central")
+            .attr("font-family", "Montserrat, sans-serif")
+            .attr("font-weight", "light")
             .attr("font-size", "36px")
             .attr("fill", "#000000")
             .attr("transform", `rotate(${angle+180}, ${labelPos[0]}, ${labelPos[1]}) translate(75, -50)`);

@@ -20,11 +20,13 @@
   .popup h2 {
     font-size: 24px;
     margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .popup p {
     font-size: 16px;
     margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .popup button {
@@ -38,4 +40,5 @@
   
   .skills-list {
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
   }
