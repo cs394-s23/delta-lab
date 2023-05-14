@@ -9,6 +9,7 @@ main {
   padding: 10px 45px;
   border-radius: 10px;
   margin-bottom: 25px;
+  background-color: none;
 }
 
 .skillsList {
@@ -16,6 +17,7 @@ main {
   flex-direction: column;
   overflow: scroll;
   height: 700px;
+  background-color: none;
 }
 
 ::-webkit-scrollbar {

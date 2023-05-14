@@ -39,7 +39,7 @@ const HomePage = () => {
          </p>
          <p>
         The Practice: Reflect on your comfort and confidence using the traditional skills related to “thinking like a lawyer.” 
-         <span class="material-symbols-outlined"> link</span>
+         <span class="material-symbols-outlined"> <a href='https://www.law.georgetown.edu/wp-content/uploads/2017/10/Skills-Inventory.pdf'>link</a></span>
          </p>
          <p>
         The Process: Reflect on your comfort and confidence using technology.
