@@ -103,6 +103,7 @@ const TriangleGraph = () => {
     .attr("data-skills", skills)
     .attr("data-centroid", centroid)
     .attr("data-color", color)
+    .attr("cursor", "pointer")
 );
 
     // draw the text
