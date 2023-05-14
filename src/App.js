@@ -13,9 +13,9 @@ function App() {
   return (
     <>
     <HomePage/>
-    <Grid container spacing={3}>
+    {/* <Grid container spacing={3}>
     <FormBox></FormBox>
-    </Grid>
+    </Grid> */}
     
   </>
    

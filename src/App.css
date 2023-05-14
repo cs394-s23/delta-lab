@@ -1,5 +1,6 @@
 main {
   width : 100vw;
+  background-color: rgb(250, 250, 250);
 
 
 }
@@ -9,6 +10,7 @@ main {
   padding: 10px 45px;
   border-radius: 10px;
   margin-bottom: 25px;
+  background-color: none;
 }
 
 .skillsList {
@@ -16,6 +18,7 @@ main {
   flex-direction: column;
   overflow: scroll;
   height: 700px;
+  background-color: none;
 }
 
 ::-webkit-scrollbar {
@@ -100,4 +103,35 @@ hr {
 .resource .expand-btn {
   background-color: transparent;
   border: none;
+  
+}
+.main {
+  width : 100%;
+}
+
+.dyd {
+  display : flex;
+  width : 100%;
+  height : 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.dyd img {
+  height : auto;
+  width : 55%;
+}
+.dyd .description {
+  width : 40%;
+}
+.description p {
+  line-height: 1.5;
+  font-family: 'Montserrat', sans-serif;
+  font-size : 20px;
+}
+.create {
+  border-radius : 15px;
+  width : 200px;
+  height : 50px;
+
 }
