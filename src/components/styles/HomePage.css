@@ -75,3 +75,50 @@
     font-weight: bold;
     margin-bottom: 60px;
 }
+.form-box {
+  display: flex;
+  width : 100vw;
+  height : 100vh;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.sliders {
+  display:flex;
+  flex-direction: column;
+  width : 50vw;
+  max-height : 100vh;
+  padding : 20px;
+  gap : 20px;
+
+}
+.skillsList {
+  display:flex;
+  flex-direction: column;
+  gap : 20px;
+  width : 80%;
+
+}
+.slider {
+  width: 100%;
+
+}
+.slide {
+  border : 1px solid black;
+  padding : 20px;
+  border-radius : 5px;
+}
+.spiderchart{
+  width: 50vw;
+}
+
+.playlist-container {
+  display: none;
+}
+
+.playlist-container.visible {
+  display: block;
+}
+
+/* Add other CSS styles as needed */

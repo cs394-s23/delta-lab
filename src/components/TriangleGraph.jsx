@@ -182,7 +182,12 @@ const TriangleGraph = () => {
       const color = d3.select(this).attr("data-color");
       popupContainer.id = 'popup';
       document.body.appendChild(popupContainer);
-      ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} centroid = {centroid} color = {color} onClose={() => popupContainer.remove()} />, popupContainer);
+      ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} centroid = {centroid} color = {color} onClose={() => {
+        const popups = document.querySelectorAll('#popup');
+        for (let i = 0; i < popups.length; i++) {
+          popups[i].remove();
+        }
+      }} />, popupContainer);
     });
 
   }, [data]);
