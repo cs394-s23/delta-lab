@@ -11,13 +11,12 @@ import {getResourcesBySkill, getResourceByPath} from './firebase.js';
 function App() {
 
   return (
-    <>
-    <HomePage/>
-    {/* <Grid container spacing={3}>
-    <FormBox></FormBox>
-    </Grid> */}
-    
-  </>
+    <div className = "body">
+      <HomePage/>
+      {/* <Grid container spacing={3}>
+      <FormBox></FormBox>
+      </Grid> */}
+    </div>
    
 
      

@@ -67,7 +67,7 @@ const FormBox = () => {
   <Grid container direction="column" style={chartStyle} spacing={2}>
 
     <div>
-      <div onClick={() => setFourBox1(!fourBox1)} className="blue-box">People </div>
+      <div onClick={() => setFourBox1(!fourBox1)} className="ppp blue-box">People </div>
     {fourBox1 ? <div className="skillsList">
     {labels1.map((key, i) => (
       <div className="sliders">
@@ -80,7 +80,7 @@ const FormBox = () => {
 
     </div>
       <div >
-      <div onClick={() => setFourBox2(!fourBox2)} className="green-box">Process </div>
+      <div onClick={() => setFourBox2(!fourBox2)} className="ppp green-box">Process </div>
       {fourBox2 ? <div className="skillsList">
     {labels2.map((key, i) => (
       <div className="sliders">
@@ -92,7 +92,7 @@ const FormBox = () => {
     </div> : null}
     </div>
     <div>
-    <div onClick={() => setFourBox3(!fourBox3)} className="navy-box">Practice </div>
+    <div onClick={() => setFourBox3(!fourBox3)} className="ppp navy-box">Practice </div>
       {fourBox3 ? <div className="skillsList">
     {labels3.map((key, i) => (
       <div className="sliders">

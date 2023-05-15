@@ -1,6 +1,13 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 main {
   width : 100vw;
-  background-color: rgb(250, 250, 250);
+  /* background: linear-gradient(#ffffff, #d6a2a2);  */
+  /* height: 100%; */
 
 
 }
@@ -11,6 +18,10 @@ main {
   border-radius: 10px;
   margin-bottom: 25px;
   background-color: none;
+}
+
+.ppp {
+  margin-bottom: 5px;
 }
 
 .skillsList {
