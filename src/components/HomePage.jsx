@@ -90,7 +90,7 @@ const HomePage = () => {
 
         </div>
         {buttonClicked && (
-          <Element name='formBox' className='formBox'>
+          <Element name='formBox'>
             <FormBox />
           </Element>
         )}

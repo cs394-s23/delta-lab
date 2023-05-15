@@ -4,14 +4,7 @@ main {
 
 
 }
-.sliders {
-  border: .25px solid black;
-  width: fit-content;
-  padding: 10px 45px;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  background-color: none;
-}
+
 
 .skillsList {
   display: flex;
