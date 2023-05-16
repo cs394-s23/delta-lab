@@ -27,49 +27,36 @@ const HomePage = () => {
     <>
       <header>logo and nav</header>
       <main>
-        <div className="home-page">
-            <div className="home-content">
-                <div className="text-content">
-                    <h1> The Delta Model </h1> 
-                    <p> The Design Your Delta method is grounded in the Delta Model, a progressive and agile competency model for the 21st-century legal professional. The Delta Model consists of three competency areas foundational to the success of today’s legal professional: The Practice, The People, and The Process.</p>
-                </div>
-                <TriangleGraph/>
-            </div>
-            
-        </div>
         <div className='dyd'>
-         <img src={triangle}></img>
-         <div className='description'>
-         <p>
-         The DYD tool is a human-centered design approach that helps you assess your proficiency in the three competency areas of the Delta Model, 
-         and provides a personalized playlist of professional development opportunities to align with your goals.
-         </p>
-         <p>
-        The Practice: Reflect on your comfort and confidence using the traditional skills related to “thinking like a lawyer.” 
-         <span class="material-symbols-outlined"> <a href='https://www.law.georgetown.edu/wp-content/uploads/2017/10/Skills-Inventory.pdf'>link</a></span>
-         </p>
-         <p>
-        The Process: Reflect on your comfort and confidence using technology.
-         <span class="material-symbols-outlined"> link</span>
-         </p>
-         <p>
-        The People: Reflect on your comfort and confidence collaborating in teams and dealing with emotions
-         <span class="material-symbols-outlined"> link</span>
-         </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-         <Link
+          <div className='dyd-content'>
+            <div className='description'>
+              <h1> Design Your Delta </h1>
+              <p>The Design Your Delta (DYD) tool guides individuals in self-reflection and assessment, providing an individualized playlist of resources that aligns with their identified growth areas.</p>
+              <p>Established research demonstrates that legal professionals will need a holistic set of skills to be successful in the following categories: The Practice, The Process, and The People.</p>
+            </div>
+            <img src={triangle}></img>
+          </div>
+          <div className='scroll-continue'>
+            <p> Scroll to continue...</p>
+          </div>
+        </div>
+        <div className="home-page">
+          <div className="home-content">
+            <div className='image-content'>
+              <TriangleGraph/>
+              <p>Delta Model for Entry Level Legal Professionals</p>
+            </div>
+              <div className="text-content">
+                  <h1> The Delta Model </h1> 
+                  <p>The DYD tool is grounded in the Delta Model, a holistic visualization of these skills. The midpoint of the triangle can move to increase or decrease the surface area of each Delta Model competency based on the differing depths of skill needed for various organizational roles and stages of careers.</p>
+                  <p>The Delta Model for Entry Level Legal Professionals shifts the midpoint slightly to the right to demonstrate that regardless of the organizational role of a newly licensed attorney, the People skills are universally most critical to this success, followed by the Process and the Practice.</p>
+              </div>
+          </div>
+          <div className='scroll-continue'>
+            <p> Scroll to continue...</p>
+          </div> 
+        </div>
+        <Link
             activeClass='active'
             to='formBox'
             spy={true}
@@ -80,15 +67,6 @@ const HomePage = () => {
               Create Your Playlist
             </button>
           </Link>
-
-         </div>
-
-         
-
-
-
-
-        </div>
         {buttonClicked && (
           <Element name='formBox'>
             <FormBox />
