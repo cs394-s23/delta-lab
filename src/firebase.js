@@ -33,7 +33,7 @@ returns array of refs [ref1, ref2, ...]
 */
 export async function getResourcesBySkill(skill) {
   try {
-    const docRef = doc(db, "skills", skill);
+    const docRef = doc(db, "testSkills", skill);
     const docSnap = await getDoc(docRef);
 
     if (!docSnap.data()) {
