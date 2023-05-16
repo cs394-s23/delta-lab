@@ -36,7 +36,7 @@
 
 .home-page {
     width: 80%;
-    height: 100vh;
+    height: fit-content;
     margin: auto;
 }
 

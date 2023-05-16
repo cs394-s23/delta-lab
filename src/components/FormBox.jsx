@@ -76,6 +76,21 @@ const FormBox = () => {
       duration: 500,
     });
   };
+  const handleClickDiv1 = () => {
+    setFourBox1(!fourBox1);
+    setFourBox2(false);
+    setFourBox3(false);
+  };
+  const handleClickDiv2 = () => {
+    setFourBox2(!fourBox2);
+    setFourBox1(false);
+    setFourBox3(false);
+  };
+  const handleClickDiv3 = () => {
+    setFourBox3(!fourBox3);
+    setFourBox2(false);
+    setFourBox1(false);
+  };
   const divStyle1 = {height: fourBox1 ? `${divRef1.current.scrollHeight}px` : '0',};
   const divStyle2 = {height: fourBox2 ? `${divRef2.current.scrollHeight}px` : '0',};
   const divStyle3 = {height: fourBox3 ? `${divRef2.current.scrollHeight}px` : '0',};
@@ -90,7 +105,7 @@ const FormBox = () => {
       :
       <div className='sliders'>
       <div className='slider'>
-        <div onClick={() => setFourBox1(!fourBox1)} className="ppp blue-box">People </div>
+        <div onClick={handleClickDiv1} className="ppp blue-box">People </div>
           <div className="skillsList" style={divStyle1} ref={divRef1}>
           {labels1.map((key, i) => (
             <div className="slide">
@@ -103,7 +118,7 @@ const FormBox = () => {
     </div>
     
     <div className='slider'>
-      <div onClick={() => setFourBox2(!fourBox2)} className="ppp green-box">Process </div>
+      <div onClick={handleClickDiv2} className="ppp green-box">Process </div>
       <div className="skillsList" style={divStyle2} ref={divRef2}>
     {labels2.map((key, i) => (
       <div className="slide">
@@ -115,7 +130,7 @@ const FormBox = () => {
     </div>
     </div>
     <div className='slider'>
-    <div onClick={() => setFourBox3(!fourBox3)} className="ppp navy-box">Practice </div>
+    <div onClick={handleClickDiv3} className="ppp navy-box">Practice </div>
     <div className="skillsList" style={divStyle3} ref={divRef3}>
       {labels3.map((key, i) => (
         <div className="slide">
