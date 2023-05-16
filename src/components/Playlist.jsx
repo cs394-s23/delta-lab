@@ -71,9 +71,11 @@ export default function Playlist(props) {
         <div className = "wrap-right">
           <div className = "container">
             {threeSkills.map((area) => (
-              <div className="bookmark">
+              resource.skills[area] && (
+              <div className="bookmark">      
                 <FontAwesomeIcon icon={faBookmark} style={{ color: skillColors[area]}} size = "2x"/>
               </div> 
+              )
             ))}
           </div>
           {/* <button className = "expand-btn" onClick = {handleClick}>
@@ -99,7 +101,7 @@ export default function Playlist(props) {
               <p>{skills[area]}</p>
             </div>
             <p>
-              
+
             </p>
           </>
         ))}
