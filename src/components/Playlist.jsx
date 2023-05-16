@@ -42,8 +42,8 @@ export default function Playlist(props) {
 
   const media_type = {
     "book": faBook,
-    "online-course": faLaptopFile,
-    "article": faFileLines,
+    "online course": faLaptopFile,
+    "collection of articles": faFileLines,
   }
 
   const skillColors = ['#FA7979', '#71E98C', '#798DFA', '#E67F0D', '#FA7979', '#71E98C', '#798DFA', '#E67F0D', '#FA7979', '#71E98C', '#798DFA', '#E67F0D'];
