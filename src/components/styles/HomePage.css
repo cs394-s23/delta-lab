@@ -2,38 +2,26 @@
     width: fit-content;
     /* i really cant figure out why this spans the whole screen, i want it to just be my triangle */
 }
+.ppp {
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size : 20px;
+}
 
 .blue-box {
     background-color: #55B4E8;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    width: 80%;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-size : 20px;
   }
 
   .green-box {
     background-color: #009F73;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    width: 80%;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-size : 20px;
   }
 
   .navy-box {
     background-color: #0072B1;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    width: 80%;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-size : 20px;
   }
 
 
@@ -80,7 +68,7 @@
   width : 100vw;
   height : 100vh;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
 
 }
@@ -93,21 +81,27 @@
   gap : 20px;
 
 }
-.skillsList {
-  display:flex;
-  flex-direction: column;
-  gap : 20px;
-  width : 80%;
 
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  gap : 20px;
+  transition: height 0.3s ease;
 }
+
 .slider {
   width: 100%;
 
 }
 .slide {
   border : 1px solid black;
-  padding : 20px;
+  margin-top: 5px;
+  padding : 20px 45px;
   border-radius : 5px;
+  /* width: fit-content; */
+
 }
 .spiderchart{
   width: 50vw;

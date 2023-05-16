@@ -58,13 +58,14 @@ export default function Playlist(props) {
 
 
     return (
+      <a href = {resource.link}>
       <div className="resource">
         <div className = "wrap-left">
           <div className = "resource-icon">
             <FontAwesomeIcon icon={media_type[resource.media]} size="2x"/>
           </div>
           <div className = "resource-name" >
-            <p>{resource.name}</p>
+              <p>{resource.name}</p>
           </div>
         </div>
         <div className = "wrap-right">
@@ -75,11 +76,12 @@ export default function Playlist(props) {
               </div> 
             ))}
           </div>
-          <button className = "expand-btn" onClick = {handleClick}>
+          {/* <button className = "expand-btn" onClick = {handleClick}>
             <FontAwesomeIcon icon={isExpanded ? faAngleDown : faAngleUp} size="2x"/>
-          </button>
+          </button> */}
         </div>       
       </div>
+    </a>
     );
   }
 
@@ -90,11 +92,16 @@ export default function Playlist(props) {
       <div>
         <h1>Here are your 3 areas of focus...</h1>
       </div>
-      <div>
-        {props.leastValues.map((area) => (
-          <div className = "skill" style={{ backgroundColor: skillColors[area] }}>
-            {skills[area]}
-          </div>
+      <div className = "skills-def">
+        {props.leastValues.map((area, i) => (
+          <>
+            <div className = "skill" style={{ backgroundColor: skillColors[area], marginLeft: `${i*10}%`}}>
+              <p>{skills[area]}</p>
+            </div>
+            <p>
+              
+            </p>
+          </>
         ))}
       </div>
       <div className = "playlist-header">

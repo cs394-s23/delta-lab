@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Grid } from '@mui/material';
 import UserInput from './UserInput';
 import RadarChart from './RadarChart';
@@ -9,11 +9,16 @@ import { Link, Element, scroller } from 'react-scroll';
 const FormBox = () => {
   const [values, setValues] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
+  //this is for expanding the lists
+  const divRef1 = useRef(null);
+  const divRef2 = useRef(null);
+  const divRef3 = useRef(null);
   const [fourBox1, setFourBox1] = useState(false)
   const [fourBox2, setFourBox2] = useState(false)
   const [fourBox3, setFourBox3] = useState(false)
   const [done , setDone] = useState(false)
 
+  
   const chartStyle = {
     marginTop: '20%',
     marginLeft: '20%'
@@ -71,6 +76,10 @@ const FormBox = () => {
       duration: 500,
     });
   };
+  const divStyle1 = {height: fourBox1 ? `${divRef1.current.scrollHeight}px` : '0',};
+  const divStyle2 = {height: fourBox2 ? `${divRef2.current.scrollHeight}px` : '0',};
+  const divStyle3 = {height: fourBox3 ? `${divRef2.current.scrollHeight}px` : '0',};
+
 
   return (
    
@@ -81,21 +90,21 @@ const FormBox = () => {
       :
       <div className='sliders'>
       <div className='slider'>
-      <div onClick={() => setFourBox1(!fourBox1)} className="ppp blue-box">People </div>
-            {fourBox1 ? <div className="skillsList">
-            {labels1.map((key, i) => (
-              <div className="slide">
-                <div>{key}</div>
-                {/* {console.log(key)} */}
-                <UserInput value={values[i]} onChange={(value) => handleValueChange(value, i)} />
-              </div>
-            ))}
-            </div> : null}
+        <div onClick={() => setFourBox1(!fourBox1)} className="ppp blue-box">People </div>
+          <div className="skillsList" style={divStyle1} ref={divRef1}>
+          {labels1.map((key, i) => (
+            <div className="slide">
+              <div>{key}</div>
+              {/* {console.log(key)} */}
+              <UserInput value={values[i]} onChange={(value) => handleValueChange(value, i)} />
+            </div>
+          ))}
+          </div>
     </div>
     
     <div className='slider'>
       <div onClick={() => setFourBox2(!fourBox2)} className="ppp green-box">Process </div>
-      {fourBox2 ? <div className="skillsList">
+      <div className="skillsList" style={divStyle2} ref={divRef2}>
     {labels2.map((key, i) => (
       <div className="slide">
         <div>{key}</div>
@@ -103,19 +112,19 @@ const FormBox = () => {
         <UserInput value={values[4+i]} onChange={(value) => handleValueChange(value, 4+i)} />
       </div>
     ))}
-    </div> : null}
+    </div>
     </div>
     <div className='slider'>
     <div onClick={() => setFourBox3(!fourBox3)} className="ppp navy-box">Practice </div>
-      {fourBox3 ? <div className="skillsList">
-    {labels3.map((key, i) => (
-      <div className="slide">
-        <div>{key}</div>
-        {/* {console.log(key)} */}
-        <UserInput value={values[8+i]} onChange={(value) => handleValueChange(value, 8+i)} />
-      </div>
-    ))}
-    </div> : null}
+    <div className="skillsList" style={divStyle3} ref={divRef3}>
+      {labels3.map((key, i) => (
+        <div className="slide">
+          <div>{key}</div>
+          {/* {console.log(key)} */}
+          <UserInput value={values[8+i]} onChange={(value) => handleValueChange(value, 8+i)} />
+        </div>
+      ))}
+    </div>
     </div>
         <Link
             activeClass='active'

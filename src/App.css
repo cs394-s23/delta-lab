@@ -13,17 +13,6 @@ main {
 }
 
 
-.ppp {
-  margin-bottom: 5px;
-}
-
-.skillsList {
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
-  height: 700px;
-  background-color: none;
-}
 
 ::-webkit-scrollbar {
   display: none;
@@ -32,19 +21,29 @@ main {
 .playlist {
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: center;
+  align-items: flex-start;
   height: 100vh;
   width: 50vw;
-  /* margin-left: 50vw; */
-  /* border-left: 0.25px solid black; */
+  margin-left: 10px;
+}
+
+.skills-def {
+  margin-left: 5px;
+  width: 100%;
 }
 
 .skill {
-  padding: 1% 4%;
-  border-radius: 5px;
+  padding: 1% 5%;
+  border-radius: 15px;
   margin-bottom: 5px;
   color: white;
+  width: 40%;
+  text-align: center;
+  
+}
+.skill p{
+  font-size: large;
+  margin: 5px 0px;
 }
 
 .playlist .playlist-header {
@@ -67,13 +66,20 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: rgb(206, 206, 206);
+  background-color: rgb(235, 235, 235);
+  transition: background-color 0.2s ease;
+  /* transition: box-shadow 0.2s ease; */
+  box-shadow: 0;
   border-radius: 5px;
-  margin: 0 4% 1% 4%;
+  margin: 0 5% 2% 2%;
   padding-right: 1%;
-  width: 90%
+  width: 100%
 }
 
+.resource:hover {
+  background-color: rgb(247, 247, 247);
+  /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4); */
+}
 .resource .wrap-left {
   display: flex;
   flex-direction: row;
@@ -86,11 +92,20 @@ hr {
   align-self: center;
 }
 
+a {
+  text-decoration: none;
+  color: #333;
+  width: 90%
+}
+
+
 .resource-name {
   margin-top: 0;
   padding-left: 2%;
   align-self: center;
+  background-color: inherit;
 }
+
 
 .wrap-right {
   display: flex;
