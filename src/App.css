@@ -131,16 +131,16 @@ a {
 
 /*Screen 1 CSS STYLING*/
 .dyd {
-  width : 80%;
+  width : 90%;
   height : 100vh;
   margin: auto;
 }
 
 .dyd-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 50px;
+  margin-top: 50px;
 }
 
 .dyd h1 {
@@ -151,16 +151,18 @@ a {
 }
 
 .dyd img {
-  width : 50%;
+  width : 45%;
   height : auto;
 }
+
 .dyd .description {
-  margin-right: 15%;
+  width: 45%;
 }
+
 .description p {
   line-height: 2;
   font-family: 'Montserrat', sans-serif;
-  font-size : 24px;
+  font-size : 20px;
 }
 
 .scroll-continue {
