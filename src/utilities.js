@@ -33,12 +33,10 @@ export async function getTop5Resources(skills) {
             obj[key] = value;
             return obj;
     }, {});
-
-    const top5 = Object.keys(sortedScores).slice([0, Math.min(4, sortedScores.length)]);
+    
+    const top5 = Object.keys(sortedScores).slice(0, Math.min(5, Object.keys(sortedScores).length));
 
     console.log("top5", top5);
     
-
-
     return top5;
 }
