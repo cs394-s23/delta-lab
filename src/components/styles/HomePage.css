@@ -58,14 +58,14 @@
 .image-content p {
   margin-top: 50px;
   font-family: 'Montserrat', sans-serif;
-  font-size : 16px;
+  font-size : 12px;
   font-style: italic;
 }
 
 .text-content p {
     line-height: 2;
     font-family: 'Montserrat', sans-serif;
-    font-size : 24px;
+    font-size : 16px;
 }
 
 .text-content h1 {
