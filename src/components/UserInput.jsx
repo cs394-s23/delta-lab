@@ -10,7 +10,7 @@ export default function UserInput(props) {
   };
 
   return (
-    <Stack spacing={2} direction="column" width={300} sx={{ mt: 1 }}>
+    <Stack spacing={2} direction="column" width={300} sx={{ width: 1, mt: 1 }}>
       <Slider
         aria-label="Score"
         value={value}

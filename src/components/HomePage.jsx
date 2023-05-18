@@ -5,6 +5,7 @@ import './styles/HomePage.css';
 import FormBox from './FormBox';
 import triangle from "./assets/deltatri.png";
 import link from "./assets/Link.png";
+import SelfReflection from "./SelfReflection"
 
 
 const HomePage = () => {
@@ -56,17 +57,23 @@ const HomePage = () => {
             <p> Scroll to continue...</p>
           </div> 
         </div>
-        <Link
+        <div className = "self-reflection">
+          <SelfReflection />
+          <Link
             activeClass='active'
             to='formBox'
             spy={true}
             smooth={true}
             duration={500}
           >
-            <button className='create' onClick={handleButtonClick} disabled={buttonClicked}>
-              Create Your Playlist
-            </button>
+            <div className = "center-container">
+              <button className='create' onClick={handleButtonClick} disabled={buttonClicked}>
+                Create Your Playlist
+              </button>
+            </div>
+           
           </Link>
+        </div>
         {buttonClicked && (
           <Element name='formBox'>
             <FormBox />

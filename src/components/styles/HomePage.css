@@ -90,9 +90,7 @@
   max-height : 100vh;
   padding : 20px;
   gap : 20px;
-
 }
-
 
 .skillsList {
   display: flex;
@@ -107,13 +105,15 @@
 
 }
 .slide {
+  display: flex;
+  flex-direction: column;
   border : 1px solid black;
   margin-top: 5px;
   padding : 20px 45px;
   border-radius : 5px;
-  /* width: fit-content; */
-
+  width: 80%;
 }
+
 .spiderchart{
   width: 50vw;
 }

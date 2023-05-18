@@ -111,7 +111,7 @@ const FormBox = () => {
             <div className="slide">
               <div>{key}</div>
               {/* {console.log(key)} */}
-              <UserInput value={values[i]} onChange={(value) => handleValueChange(value, i)} />
+              <UserInput value={values[i]} onChange={(value) => handleValueChange(value, i)}/>
             </div>
           ))}
           </div>
