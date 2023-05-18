@@ -17,8 +17,8 @@ const TriangleGraph = () => {
   ];
 
   useEffect(() => {
-    const width = 670;
-    const height = 500;
+    const width = 600;
+    const height = 430;
 
     if (!d3.select(ref.current).select("svg").empty()) {
       return; // If the SVG element already exists, don't do anything
