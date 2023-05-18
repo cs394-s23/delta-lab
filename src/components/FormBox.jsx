@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Sticky from 'react-stickynode';
 import { Grid } from '@mui/material';
 import UserInput from './UserInput';
 import RadarChart from './RadarChart';
@@ -99,10 +100,7 @@ const FormBox = () => {
   return (
    
     <div className="form-box">
-     {done? <Element name='playlist' className='playlist'>
-          <Playlist leastValues={lowestKeys}/>
-          </Element>
-      :
+      <div className="left-side">
       <div className='sliders'>
       <div className='slider'>
         <div onClick={handleClickDiv1} className="ppp blue-box">People </div>
@@ -152,14 +150,23 @@ const FormBox = () => {
               Analyze
             </button>
           </Link>
-      </div>
-      }
-      <div className='spiderchart'>
-         <RadarChart data={values} />
-      </div>
-   
-          
 
+      </div>
+      {done && (
+        <div className>
+          <Element name='playlist' className='playlist'>
+              <Playlist leastValues={lowestKeys}/>
+          </Element>
+        </div>
+          )}  
+      </div>
+      <Sticky activeClass="spiderchart">
+        <div className='spiderchart'>
+          <RadarChart data={values} />
+        </div>
+      </Sticky>
+   
+      
     </div>
     
       
