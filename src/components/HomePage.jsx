@@ -53,19 +53,6 @@ const HomePage = () => {
                   <p>The Delta Model for Entry Level Legal Professionals shifts the midpoint slightly to the right to demonstrate that regardless of the organizational role of a newly licensed attorney, the People skills are universally most critical to this success, followed by the Process and the Practice.</p>
               </div>
           </div>
-          <div className="create-btn-div">
-            <Link
-              activeClass='active'
-              to='formBox'
-              spy={true}
-              smooth={true}
-              duration={500}
-            >
-              <button className='create-btn' onClick={handleButtonClick} disabled={buttonClicked}>
-                Create Your Playlist
-              </button>
-            </Link>
-          </div>
         </div>
         <div className = "self-reflection">
           <SelfReflection />
