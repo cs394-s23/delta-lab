@@ -1,6 +1,6 @@
 .triangle-graph {
-    width: fit-content;
-    /* i really cant figure out why this spans the whole screen, i want it to just be my triangle */
+  width: fit-content;
+      /* i really cant figure out why this spans the whole screen, i want it to just be my triangle */
 }
 .ppp {
   color: white;
@@ -35,54 +35,70 @@
   }
 
 .home-page {
-    width: 80%;
-    height: fit-content;
-    margin: auto;
+  width: 90%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
 }
 
 .text-content {
-  margin-left: 50px;
+  width: 50%;
 }
 
 .image-content {
   text-align: center;
+  width: fit-content;
 }
 
 .image-content p {
   margin-top: 50px;
   font-family: 'Montserrat', sans-serif;
-  font-size : 16px;
+  font-size : 12px;
   font-style: italic;
 }
 
 .text-content p {
     line-height: 2;
     font-family: 'Montserrat', sans-serif;
-    font-size : 24px;
+    font-size : 20px;
 }
 
 .text-content h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 48px;
+    font-size: 45px;
     font-weight: bold;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
+
+.create-btn-div {
+  display: flex;
+}
+
+.create-btn {
+  border-radius : 15px;
+  width : 200px;
+  height : 50px;
+  margin: 0px;
+  padding: 0px;
+}
+
 .form-box {
   display: flex;
   width : 100vw;
   height : 100vh;
   justify-content: center;
   align-items: flex-start;
-
-
 }
+
 .sliders {
   display:flex;
   flex-direction: column;
@@ -90,6 +106,7 @@
   max-height : 100vh;
   padding : 20px;
   gap : 20px;
+  height: 100vh;
 }
 
 .skillsList {
@@ -105,9 +122,6 @@
 
 }
 .slide {
-  display: flex;
-  flex-direction: column;
-  border : 1px solid black;
   margin-top: 5px;
   padding : 20px 45px;
   border-radius : 5px;
@@ -116,6 +130,7 @@
 
 .spiderchart{
   width: 50vw;
+  position: sticky;
 }
 
 .playlist-container {

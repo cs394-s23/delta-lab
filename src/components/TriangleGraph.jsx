@@ -17,8 +17,8 @@ const TriangleGraph = () => {
   ];
 
   useEffect(() => {
-    const width = 670;
-    const height = 500;
+    const width = 500;
+    const height = 350;
 
     if (!d3.select(ref.current).select("svg").empty()) {
       return; // If the SVG element already exists, don't do anything
@@ -127,7 +127,7 @@ const TriangleGraph = () => {
         .attr("alignment-baseline", "central")
         .attr("font-family", "Montserrat, sans-serif")
         .attr("font-weight", "light")
-        .attr("font-size", "36px")
+        .attr("font-size", "24px")
         .attr("fill", "#000000")
         .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(-75, 20)`);
       }
@@ -142,7 +142,7 @@ const TriangleGraph = () => {
           .attr("alignment-baseline", "central")
           .attr("font-family", "Montserrat, sans-serif")
           .attr("font-weight", "light")
-          .attr("font-size", "36px")
+          .attr("font-size", "24px")
           .attr("fill", "#000000")
           .attr("transform", `rotate(${angle+180}, ${labelPos[0]}, ${labelPos[1]}) translate(75, -50)`);
         }
@@ -158,7 +158,7 @@ const TriangleGraph = () => {
             .attr("alignment-baseline", "central")
             .attr("font-family", "Montserrat, sans-serif")
             .attr("font-weight", "light")
-            .attr("font-size", "36px")
+            .attr("font-size", "24px")
             .attr("fill", "#000000")
             .attr("transform", `rotate(${angle+180}, ${labelPos[0]}, ${labelPos[1]}) translate(75, -50)`);
       }
