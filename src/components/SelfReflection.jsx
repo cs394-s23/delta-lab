@@ -41,31 +41,46 @@ export default function SelfReflection() {
             </div>
           </div>
           <div className = "ppp-reflect-links">
-              <div className = "reflect-links people-links">
-                <div className = "reflect-link-people">
+            <div className = "reflect-links people-links">
+              <div className="flex-container">
+                <div className="arrow"></div>
+                <div className = "reflect-link">
                   <p>
-                  <strong>Thine:</strong> "a personality assessment [that] helps candidates identify their strengths and development areas, and serves as 
-                  an introduction to potential employers who—by using the same assessment results—can understand a candidate's potential value 
-                  beyond the traditional benchmarks of success"
+                    <strong>Thine:</strong> "a personality assessment [that] helps candidates identify their strengths and development areas, and serves as 
+                    an introduction to potential employers who—by using the same assessment results—can understand a candidate's potential value 
+                    beyond the traditional benchmarks of success"
                   </p>
                 </div>
               </div>
+              </div>
               <div className = "reflect-links process-links" id = "reflect-sources">
-                <div className = "reflect-link-process">
-                  <p><strong>The Procertas Legal Tech Audit </strong>- A tool to assess your use of Microsoft Word and Adobe in the legal setting</p>
+                <div className="flex-container">
+                  <div className="arrow"></div>
+                  <div className = "reflect-link">
+                    <p><strong>The Procertas Legal Tech Audit </strong>- A tool to assess your use of Microsoft Word and Adobe in the legal setting</p>
+                  </div>
                 </div>
-                <div className = "reflect-link-process">
-                  <p><strong>12 Core Compentencies Reference Model </strong>provided by The Corporate Legal Operations Consortium’s (CLOC)</p>
+                <div className="flex-container">
+                <div className="arrow"></div>
+                  <div className = "reflect-link">
+                    <p><strong>12 Core Compentencies Reference Model </strong>provided by The Corporate Legal Operations Consortium’s (CLOC)</p>
+                  </div>
                 </div>
-                <div className = "reflect-link-process">
-                  <p> <strong>Pymetrics:</strong> a “gamified behavioral [assessment] to evaluate the entire talent lifecycle…[to] collect objective cognitive and 
-                    behavioral data that measures everyone’s true potential
-                  </p>
+                <div className="flex-container">
+                  <div className="arrow"></div>
+                  <div className = "reflect-link">
+                    <p> <strong>Pymetrics:</strong> a “gamified behavioral [assessment] to evaluate the entire talent lifecycle…[to] collect objective cognitive and 
+                      behavioral data that measures everyone’s true potential
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className = "reflect-links practice-links">
-                <div className = "reflect-link-practice">
-                  <p><strong>26 Lawyering Effectiveness Factors (Skills) Inventory: </strong>provided in the Georgetown Law Career Compass Guide</p>
+                  <div className="flex-container">
+                  <div className="arrow"></div>
+                  <div className = "reflect-link">
+                    <p><strong>26 Lawyering Effectiveness Factors (Skills) Inventory: </strong>provided in the Georgetown Law Career Compass Guide</p>
+                  </div>
                 </div>
               </div>
           </div>

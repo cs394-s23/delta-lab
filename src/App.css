@@ -206,7 +206,7 @@ a {
   flex-direction: column;
   flex-basis: 40%;
   justify-content: space-between;
-  margin-right: 8%;
+  margin-right: 3%;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
 
@@ -214,7 +214,7 @@ a {
 .ppp-reflect-links {
   display: flex;
   flex-direction: column;
-  flex-basis: 50%;
+  flex-basis: 60%;
   justify-content: space-between;
 }
 
@@ -229,36 +229,27 @@ a {
   font-family: 'Montserrat', sans-serif;
   margin: 10px;
 }
-.reflect-link-people{
+.reflect-link {
+  flex-basis: 90%;
+  border-radius: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center;
+}
+
+.people-links .reflect-link, .people-links .arrow, .people-links .arrow::before {
   background-color: #55B4E8;
-  border-radius: 10px;
-  padding-right: 15px;
-  padding-left: 15px;
-
-  text-align: center;
 }
-.reflect-link-process {
+.process-links .reflect-link, .process-links .arrow, .process-links .arrow::before {
   background-color: #009F73;
-  border-radius: 10px;
-  padding-right: 15px;
-  padding-left: 15px;
-  text-align: center;
-
 }
-
-.ppp-reflect-links p {
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-
-
-.reflect-link-practice {
+.practice-links .reflect-link, .practice-links .arrow, .practice-links .arrow::before{
   background-color: #0072B1;
-  border-radius: 10px;
-  text-align: center;
-  padding-right: 15px;
-  padding-left: 15px;
 
+}
+.ppp-reflect-links p {
+  padding: 12px 2px;
+  font-size: 16px;
 }
 
 .create {
@@ -266,5 +257,35 @@ a {
   border-radius : 15px;
   width : 200px;
   height : 50px;
+
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  position: relative;
+  flex-basis: 10%;
+  width: 100px;
+  height: 5px;
+  /* background-color: #55B4E8; */
+}
+.arrow::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.arrow::before {
+  top: -150%;
+  left: -5%;
+  /* transform: translateX(-50%); */
+}
+
+.arrow {
 
 }
