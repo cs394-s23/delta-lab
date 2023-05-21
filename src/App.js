@@ -5,14 +5,16 @@ import './App.css';
 import Playlist from './components/Playlist';
 import { Grid } from '@mui/material';
 import HomePage from './components/HomePage';
-
+import {UserProvider, useUser} from './context/AuthContext';
 import {getResourcesBySkill, getResourceByPath} from './firebase.js';
 
 function App() {
 
   return (
     <div className = "body">
-      <HomePage/>
+      <UserProvider>
+        <HomePage/>
+      </UserProvider>
       {/* <Grid container spacing={3}>
       <FormBox></FormBox>
       </Grid> */}

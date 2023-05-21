@@ -6,10 +6,13 @@ import FormBox from './FormBox';
 import triangle from "./assets/deltatri.png";
 import link from "./assets/Link.png";
 import SelfReflection from "./SelfReflection"
+import {useUser} from '../context/AuthContext';
+
 
 
 const HomePage = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
+  const {user, signin} = useUser();
 
   // Function to handle button click
   const handleButtonClick = () => {
@@ -28,6 +31,7 @@ const HomePage = () => {
     <>
       <header>logo and nav</header>
       <main>
+        <button onClick={signin}></button>
         <div className='dyd'>
           <div className='dyd-content'>
             <div className='description'>
