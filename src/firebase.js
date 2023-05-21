@@ -56,16 +56,38 @@ export async function getResourcesBySkill(skill) {
 }
 
 export async function addTraitsToUsers(uid, traitsArray) {
-  const todayDate = new Date();
-  const unixTimestamp = Math.floor(todayDate.getTime() / 1000);
+  const currentDate = new Date();
+  const month = currentDate.toLocaleString('default', { month: 'long' });
+  const day = currentDate.getDate();
+  const year = currentDate.getFullYear();
+
+  const formattedDate = `${month} ${day}, ${year}`;
 
   const docRef = doc(db, "users", uid);
 
   // Update the map field with a new key-value pair
-  const customId = `dates.${unixTimestamp}`; // Fix the template literal syntax
+  const customId = `dates.${formattedDate}`; // Fix the template literal syntax
   await updateDoc(docRef, {
     [customId]: traitsArray, // Use square brackets to use the value of customId as the field name
   });
+}
+
+export async function getDateTraitsByUser(uid, formattedDate) {
+  try {
+    const docRef = doc(db, "users", uid);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.data()) {
+      return null;
+    }
+
+    const traits = docSnap.data().dates;
+    console.log(traits[formattedDate]);
+    return traits[formattedDate];
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
 
 export async function getResourceByPath(path) {
