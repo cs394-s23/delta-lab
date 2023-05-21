@@ -31,7 +31,7 @@ const HomePage = () => {
     <>
       <header>logo and nav</header>
       <main>
-        <button onClick={signin}></button>
+        <button onClick={signin}> Sign In </button>
         <div className='dyd'>
           <div className='dyd-content'>
             <div className='description'>
