@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { initializeFirestore, doc, getDoc } from "firebase/firestore";
+import { initializeFirestore, doc, updateDoc, getDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -53,6 +53,19 @@ export async function getResourcesBySkill(skill) {
     console.log(error);
     return null;
   }
+}
+
+export async function addTraitsToUsers(uid, traitsArray) {
+  const todayDate = new Date();
+  const unixTimestamp = Math.floor(todayDate.getTime() / 1000);
+
+  const docRef = doc(db, "users", uid);
+
+  // Update the map field with a new key-value pair
+  const customId = `dates.${unixTimestamp}`; // Fix the template literal syntax
+  await updateDoc(docRef, {
+    [customId]: traitsArray, // Use square brackets to use the value of customId as the field name
+  });
 }
 
 export async function getResourceByPath(path) {

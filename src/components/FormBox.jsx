@@ -6,6 +6,7 @@ import RadarChart from './RadarChart';
 import Playlist from './Playlist';
 import './styles/HomePage.css';
 import { Link, Element, scroller } from 'react-scroll';
+import { addTraitsToUsers } from '../firebase';
 
 const FormBox = () => {
   const [values, setValues] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -52,6 +53,7 @@ const FormBox = () => {
     setValues(values.map((value, i) => (i === index ? newValue : value)));
   };
   const arr = [0,1,2,3,4,5,6,7,8,9,10,11]
+  const ourID = "oZIq8NREUTYVpGxVz1pD"
 
   const sliderdict = {}
   for (let i = 0; i < values.length; i++){
@@ -67,9 +69,12 @@ const FormBox = () => {
     .slice(0,3)
     .map(entry => entry[0])
   console.log("LOWEST", lowestKeys)
+  console.log(values, "VALUESSSS")
   const handleDone = () => {
     setDone(true);
     setTimeout(scrollToFormBox, 200);
+    addTraitsToUsers(ourID, values)
+
   };
   const scrollToFormBox = () => {
     scroller.scrollTo('playlist', {
