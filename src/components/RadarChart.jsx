@@ -2,9 +2,11 @@ import React from "react";
 import {useState, useEffect} from "react";
 import ReactApexChart from "react-apexcharts";
 import FormBox from "./FormBox";
+import { addTraitsToUsers } from "../firebase";
 
 const RadarChart = (props) => {
   const [data, setData] = useState(props.data)
+  console.log(props.data)
   const myLabels = [
     "Professionalism",
     "Integrity/Trustworthiness",
