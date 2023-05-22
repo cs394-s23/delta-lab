@@ -123,28 +123,19 @@ hr {
 
 .resource {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   background-color: rgb(235, 235, 235);
   transition: background-color 0.2s ease;
-  /* transition: box-shadow 0.2s ease; */
-  box-shadow: 0;
   border-radius: 5px;
   margin-bottom: 2%;
   padding-right: 1%;
   width: 100%;
-  height : 20%;
+  height: 20%;
 }
 
 .resource:hover {
   background-color: rgb(247, 247, 247);
   /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4); */
-}
-.resource .wrap-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  width: 80%;
 }
 
 .resource-icon {
@@ -159,17 +150,7 @@ a {
 }
 
 
-.resource-name {
-  margin-top: 0;
-  padding-left: 2%;
-  align-self: center;
-  background-color: inherit;
-}
 
-
-.wrap-right {
-  display: flex;
-}
 
 .center-container {
   display: flex;

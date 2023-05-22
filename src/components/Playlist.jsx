@@ -59,15 +59,15 @@ export default function Playlist(props) {
 
     return (
       <a href = {resource.link} className="resource">
-          <div className = "wrap-left">
+          <div style = {{ display: 'flex' }}>
             <div className = "resource-icon">
               <FontAwesomeIcon icon={media_type[resource.media]} size="2x"/>
             </div>
-            <div className = "resource-name" >
+            <div style = {{paddingLeft: '2%'}} >
               <p>{resource.name}</p>
             </div>
           </div>
-        <div className = "wrap-right">
+        <div style = {{display: 'flex'}}>
             {threeSkills.map((area) => (
               resource.skills[area] && (
               <div className="bookmark">      
