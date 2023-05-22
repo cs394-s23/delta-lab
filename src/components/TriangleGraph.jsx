@@ -17,8 +17,8 @@ const TriangleGraph = () => {
   ];
 
   useEffect(() => {
-    const width = 500;
-    const height = 350;
+    const width = 600;
+    const height = 575;
 
     if (!d3.select(ref.current).select("svg").empty()) {
       return; // If the SVG element already exists, don't do anything
@@ -192,7 +192,18 @@ const TriangleGraph = () => {
 
   }, [data]);
 
-  return <div className = "triangle-graph" ref={ref}></div>;
+  return <div >
+  
+  
+  
+  <div ref={ref}></div>
+
+  </div>
+
+
+
+  
+  ;
 };
 
 export default TriangleGraph;

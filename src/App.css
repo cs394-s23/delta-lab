@@ -1,16 +1,35 @@
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 
-main {
+
+
+.container{
   width : 100vw;
-  /* background: linear-gradient(#ffffff, #d6a2a2);  */
-  /* height: 100%; */
-
+  height : 100vh;
+  display : flex;
+  justify-content : flex-start;
+  align-items : flex-start;
+ margin : 0;
 
 }
+
+.container h1 {
+  font-family: 'Comfortaa', cursive;
+
+  font-size: 3vw;
+  font-weight: bold;
+  margin-bottom: 50px;
+  
+ 
+}
+.container h2 {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 1.75vw;
+  font-weight: bold;
+  margin-bottom: 50px;
+  
+ 
+}
+
+
 
 
 
@@ -19,6 +38,56 @@ main {
   display: none;
 }
 
+
+.container .content {
+  display: flex;
+  width : 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.container .description {
+  width: 50%;
+  margin : 2%;
+ 
+}
+.description p {
+  line-height: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-size : 1.5vw;
+  width : 100%;
+  word-break: keep-all;
+  text-align: justify;
+}
+
+
+
+.content img{
+  display :flex;
+  justify-content : center;
+  align-items : center;
+  width : 45%;
+  height : auto;
+  display : block;
+}
+@media (max-width: 767px) {
+   .description {
+  width: 100%;
+  padding : 2%;
+}
+
+}
+
+.scroll-continue {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-size : 20px;
+}
+
+/*End*/
+
+/* Playlist Styling */ 
 .playlist {
   display: flex;
   flex-direction: column;
@@ -42,17 +111,8 @@ main {
   text-align: center;
   
 }
-.skill p{
-  font-size: large;
-  margin: 5px 0px;
-}
 
-.playlist .playlist-header {
-  font-weight: bold;  
-}
-.playlist-header p {
-  margin: 5px;
-}
+
 
 hr {
   border: 0;
@@ -74,7 +134,8 @@ hr {
   border-radius: 5px;
   margin: 0 5% 2% 2%;
   padding-right: 1%;
-  width: 100%
+  width: 100%;
+  height : 20%;
 }
 
 .resource:hover {
@@ -111,10 +172,7 @@ a {
 .wrap-right {
   display: flex;
 }
-.container {
-  display: flex;
-  margin-top: -5px;
-}
+
 .center-container {
   display: flex;
   justify-content: center;
@@ -130,76 +188,28 @@ a {
   border: none;
 
 }
-.main {
-  width : 100%;
-}
 
 
-/*Screen 1 CSS STYLING*/
-.dyd {
-  width : 90%;
-  height : 100vh;
-  margin: auto;
-}
 
-.dyd-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 50px;
-}
 
-.dyd h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 45px;
-  font-weight: bold;
-  margin-bottom: 50px;
-}
 
-.dyd img {
-  width : 45%;
-  height : auto;
-}
 
-.dyd .description {
-  width: 45%;
-}
 
-.description p {
-  line-height: 2;
-  font-family: 'Montserrat', sans-serif;
-  font-size : 20px;
-}
 
-.scroll-continue {
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  font-style: italic;
-  font-size : 20px;
-}
 
-/* END OF SCREEN 1 STYLING */
+
+
+
+
+
+
+
 
 
 /* START OF SELF REFLECTION STYLING HERE */
 
-.self-reflection {
-  margin: auto;
-  height: 100vh;
-  width: 90vw;
-  align-content: center;
-}
 
-.reflect-content header {
-  font-family: 'Montserrat', sans-serif;
 
-}
-
-.self-reflection h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 36px;
-  font-weight: bold;
-}
 
 .reflect-defs {
   display: flex;
@@ -247,10 +257,7 @@ a {
   background-color: #0072B1;
 
 }
-.ppp-reflect-links p {
-  padding: 12px 2px;
-  font-size: 16px;
-}
+
 
 .create {
   margin-top: 10px;
@@ -285,7 +292,14 @@ a {
   left: -5%;
   /* transform: translateX(-50%); */
 }
+.form-box {
+  display: flex;
 
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+/* 
 .arrow {
 
-}
+} */

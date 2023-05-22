@@ -58,8 +58,8 @@ export default function Playlist(props) {
 
 
     return (
-      <a href = {resource.link}>
-      <div className="resource">
+      <a href = {resource.link} className="resource">
+      <div >
         <div className = "wrap-left">
           <div className = "resource-icon">
             <FontAwesomeIcon icon={media_type[resource.media]} size="2x"/>

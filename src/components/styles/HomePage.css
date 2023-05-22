@@ -1,83 +1,47 @@
-.triangle-graph {
-  width: fit-content;
-      /* i really cant figure out why this spans the whole screen, i want it to just be my triangle */
-}
-.ppp {
+
+.box {
   color: white;
-  padding: 10px;
+  padding: 2%;
   border-radius: 5px;
   width: 100%;
+  height: 100%;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-size : 20px;
-}
+  height : 10vh;
+} 
 
-.blue-box {
+#blue{
     background-color: #55B4E8;
   }
 
-  .green-box {
+  #green {
     background-color: #009F73;
   }
 
-  .navy-box {
+  #navy {
     background-color: #0072B1;
   }
 
 
-  .boxContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    align-items: center;
-    justify-content: center;
-  }
-
-.home-page {
-  width: 90%;
-  height: 100vh;
-  margin: auto;
+.slider {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height : auto;
+
+  
+
+}
+@media (max-width: 767px) {
+  .content {
+    display : flex;
+    flex-direction : column;
+  }
 }
 
-.home-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 50px;
-}
 
-.text-content {
-  width: 50%;
-}
-
-.image-content {
-  text-align: center;
-  width: fit-content;
-}
-
-.image-content p {
-  margin-top: 50px;
-  font-family: 'Montserrat', sans-serif;
-  font-size : 12px;
-  font-style: italic;
-}
-
-.text-content p {
-    line-height: 2;
-    font-family: 'Montserrat', sans-serif;
-    font-size : 20px;
-}
-
-.text-content h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 45px;
-    font-weight: bold;
-    margin-bottom: 50px;
-}
 
 .create-btn-div {
   display: flex;
@@ -91,54 +55,139 @@
   padding: 0px;
 }
 
-.form-box {
-  display: flex;
-  width : 100vw;
+
+.content .side {
+  width: 40%;
+  margin-left : 5%;
   height : 100vh;
-  justify-content: center;
-  align-items: flex-start;
+  
 }
 
 .sliders {
   display:flex;
   flex-direction: column;
-  width : 50vw;
-  max-height : 100vh;
-  padding : 20px;
-  gap : 20px;
-  height: 100vh;
+  justify-content: flex-start;
+  width : 100%;
+  gap : 10vh;
+  min-height : 100vh;
+
+
 }
+
 
 .skillsList {
   display: flex;
+  width : 100%;
+  
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
   overflow: scroll;
-  gap : 20px;
+  
   transition: height 0.3s ease;
+  
 }
 
-.slider {
-  width: 100%;
+/* .slider {
+  
 
-}
+} */
 .slide {
-  margin-top: 5px;
-  padding : 20px 45px;
-  border-radius : 5px;
-  width: 80%;
+  margin-top: 5%;
+  padding : 2%;
+  border-radius : 5%;
+  width: 80%
 }
 
 .spiderchart{
   width: 50vw;
+  height: 100vh;
   position: sticky;
-}
+  
+  }
+  
+
 
 .playlist-container {
   display: none;
+  height : 100vh;
 }
 
 .playlist-container.visible {
   display: block;
+  
+  
 }
 
+
 /* Add other CSS styles as needed */
+
+@media (min-width: 768px) {
+  .scroll-reminder {
+      display:none;
+  }
+}
+
+@media (min-width: 1050px) and (min-height:650px) {
+  .scroll-reminder {
+      animation:scrollFadeIn 2s;
+      border-left: 1px solid #009FD4;
+      bottom: 0;
+      display: block;
+      font-family: "Good Sans";
+      height: 44px;
+      left: calc(16% + 3px);
+      max-width: 672px;
+      position: absolute;
+      width: 100%;
+      z-index: 0;
+  }
+
+  .scroll-reminder p {
+      color: #767676;
+      font-size: 0.55em;
+      line-height: 1;
+      padding-left: 1em;
+      position: absolute;
+      top: 0;
+  }
+
+  .scroll-reminder .scroll-reminder-tick {
+      animation: scrollTick 2.5s;
+      animation-iteration-count: infinite;
+      background-color: #009FD4;
+      display: block;
+      height: 15px;
+      margin-left: -2px;
+      position: absolute;
+      width: 3px;
+  }
+
+  @keyframes scrollTick {
+      from {
+          transform: translateY(0);
+      }
+
+      to {
+          transform: translateY(29px);
+      }
+  }
+}
+
+@media (min-width: 1600px) {
+  .scroll-reminder {
+      left:calc(100% - 672px);
+  }
+}
+
+@keyframes scrollFadeIn {
+  from {
+      opacity: 0;
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+

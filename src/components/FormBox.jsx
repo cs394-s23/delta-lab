@@ -7,6 +7,7 @@ import Playlist from './Playlist';
 import './styles/HomePage.css';
 import { Link, Element, scroller } from 'react-scroll';
 
+
 const FormBox = () => {
   const [values, setValues] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
@@ -52,6 +53,7 @@ const FormBox = () => {
     setValues(values.map((value, i) => (i === index ? newValue : value)));
   };
   const arr = [0,1,2,3,4,5,6,7,8,9,10,11]
+  const ourID = "oZIq8NREUTYVpGxVz1pD"
 
   const sliderdict = {}
   for (let i = 0; i < values.length; i++){
@@ -67,9 +69,11 @@ const FormBox = () => {
     .slice(0,3)
     .map(entry => entry[0])
   console.log("LOWEST", lowestKeys)
+  console.log(values, "VALUESSSS")
   const handleDone = () => {
     setDone(true);
     setTimeout(scrollToFormBox, 200);
+    
   };
   const scrollToFormBox = () => {
     scroller.scrollTo('playlist', {
@@ -99,11 +103,11 @@ const FormBox = () => {
 
   return (
    
-    <div className="form-box">
-      <div className="left-side">
+    <div className="content">
+      <div className="side">
       <div className='sliders'>
       <div className='slider'>
-        <div onClick={handleClickDiv1} className="ppp blue-box">People </div>
+        <div onClick={handleClickDiv1} className="box" id="blue">People </div>
           <div className="skillsList" style={divStyle1} ref={divRef1}>
           {labels1.map((key, i) => (
             <div className="slide">
@@ -116,7 +120,7 @@ const FormBox = () => {
     </div>
     
     <div className='slider'>
-      <div onClick={handleClickDiv2} className="ppp green-box">Process </div>
+      <div onClick={handleClickDiv2} className="box" id="green">Process </div>
       <div className="skillsList" style={divStyle2} ref={divRef2}>
     {labels2.map((key, i) => (
       <div className="slide">
@@ -128,7 +132,7 @@ const FormBox = () => {
     </div>
     </div>
     <div className='slider'>
-    <div onClick={handleClickDiv3} className="ppp navy-box">Practice </div>
+    <div onClick={handleClickDiv3} className="box" id="navy">Practice </div>
     <div className="skillsList" style={divStyle3} ref={divRef3}>
       {labels3.map((key, i) => (
         <div className="slide">
@@ -152,6 +156,7 @@ const FormBox = () => {
           </Link>
 
       </div>
+      
       {done && (
         <div className>
           <Element name='playlist' className='playlist'>
