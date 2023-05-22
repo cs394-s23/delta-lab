@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link, Element, scroller } from 'react-scroll';
 import TriangleGraph from './TriangleGraph';
 import './styles/HomePage.css';
@@ -12,7 +12,7 @@ import {useUser} from '../context/AuthContext';
 
 const HomePage = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
-  const {user, signin} = useUser();
+  const {user, signIn, signOut} = useUser();
 
   // Function to handle button click
   const handleButtonClick = () => {
@@ -26,10 +26,30 @@ const HomePage = () => {
     });
   };
 
+  const handleSignIn = () => {
+    signIn();
+  }
+
+  const handleSignOut = () => {
+    signOut();
+  }
+
+  console.log("user = ", user);
 
   return (
     <>
       {/* <header> logo</header> */}
+      <header>
+        {user ?
+        (<button className="signin" onClick={handleSignOut}>
+          SIGN OUT
+        </button>)
+        :
+        (<button className="signin" onClick={handleSignIn}>
+          SIGN IN
+        </button>)
+        }
+      </header>
       <main>
         <div className='container'>
           <div className='content'>

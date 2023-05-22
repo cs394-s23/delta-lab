@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, getRedirectResult, GoogleAuthProvider } from "firebase/auth";
 import { auth, provider } from "../firebase";
 import { signInWithRedirect } from "firebase/auth";
 
@@ -17,21 +17,33 @@ export const UserProvider = ({ children }) => {
       // Listen for auth state changes
       const unsubscribe = auth.onAuthStateChanged((user) => {
         setUser(user);
-        console.log("user signed in", user)
-      })
-     
-  
+      });
+
       // Clean up the listener when the component unmounts
       return unsubscribe;
     }, []);
+  
 
-    const signin = () => {
-        signInWithRedirect(auth, provider);
+    const signIn = () => {
+      signInWithRedirect(auth, provider)
+      .then(() => {
+        getRedirectResult(auth)
+        .then((result) => {
+          setUser(result.user);
+        });
+      });
+    };
+
+    const signOut = () => {
+      auth.signOut().then( () => {
+        setUser(null);
+      });
     }
 
     const values = {
         user,
-        signin,
+        signIn,
+        signOut
     };
 
     return <UserContext.Provider value={values}>{children}</UserContext.Provider>

@@ -26,7 +26,7 @@ const analytics = getAnalytics(app);
 export const provider = new GoogleAuthProvider();
 export const auth = getAuth();
 
-
+/*
 getRedirectResult(auth)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access Google APIs.
@@ -47,6 +47,7 @@ getRedirectResult(auth)
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
+  */
 
 let settings = {}
 export const db = initializeFirestore(app, settings)
