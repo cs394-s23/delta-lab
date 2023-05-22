@@ -31,14 +31,8 @@ const HomePage = () => {
     <>
       {/* <header> logo</header> */}
       <main>
-<<<<<<< HEAD
         <div className='container'>
           <div className='content'>
-=======
-        <button onClick={signin}> Sign In </button>
-        <div className='dyd'>
-          <div className='dyd-content'>
->>>>>>> 794cf3e0f557fe5a6285b9356e92863fe8b982a8
             <div className='description'>
               <h1> Design Your Delta </h1>
               <p>The Design Your Delta (DYD) tool guides individuals in self-reflection and assessment, providing an individualized playlist of resources that aligns with their identified growth areas.</p>
