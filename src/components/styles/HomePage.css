@@ -8,7 +8,6 @@
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-size : 20px;
-  height : 10vh;
 } 
 
 #blue{
@@ -58,7 +57,7 @@
 
 .content .side {
   width: 40%;
-  margin-left : 5%;
+  /* margin-left : 5%; */
   height : 100vh;
   
 }
@@ -68,23 +67,18 @@
   flex-direction: column;
   justify-content: flex-start;
   width : 100%;
-  gap : 10vh;
+  gap : 1vh;
   min-height : 100vh;
-
-
 }
 
 
 .skillsList {
   display: flex;
   width : 100%;
-  
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  
   overflow: scroll;
-  
+  max-height: fit-content;
   transition: height 0.3s ease;
   
 }

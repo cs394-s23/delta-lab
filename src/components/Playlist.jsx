@@ -59,17 +59,15 @@ export default function Playlist(props) {
 
     return (
       <a href = {resource.link} className="resource">
-      <div >
-        <div className = "wrap-left">
-          <div className = "resource-icon">
-            <FontAwesomeIcon icon={media_type[resource.media]} size="2x"/>
-          </div>
-          <div className = "resource-name" >
+          <div style = {{ display: 'flex' }}>
+            <div className = "resource-icon">
+              <FontAwesomeIcon icon={media_type[resource.media]} size="2x"/>
+            </div>
+            <div style = {{paddingLeft: '2%'}} >
               <p>{resource.name}</p>
+            </div>
           </div>
-        </div>
-        <div className = "wrap-right">
-          <div className = "container">
+        <div style = {{display: 'flex'}}>
             {threeSkills.map((area) => (
               resource.skills[area] && (
               <div className="bookmark">      
@@ -77,13 +75,11 @@ export default function Playlist(props) {
               </div> 
               )
             ))}
-          </div>
           {/* <button className = "expand-btn" onClick = {handleClick}>
             <FontAwesomeIcon icon={isExpanded ? faAngleDown : faAngleUp} size="2x"/>
           </button> */}
-        </div>       
-      </div>
-    </a>
+        </div>   
+      </a>    
     );
   }
 

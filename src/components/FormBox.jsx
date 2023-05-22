@@ -13,10 +13,10 @@ const FormBox = () => {
   const [values, setValues] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
   //this is for expanding the lists
-  const divRef1 = useRef(null);
+  const divRef1 = useRef(true);
   const divRef2 = useRef(null);
   const divRef3 = useRef(null);
-  const [fourBox1, setFourBox1] = useState(false)
+  const [fourBox1, setFourBox1] = useState(true)
   const [fourBox2, setFourBox2] = useState(false)
   const [fourBox3, setFourBox3] = useState(false)
   const [done , setDone] = useState(false)
