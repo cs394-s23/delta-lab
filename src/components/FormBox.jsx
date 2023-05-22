@@ -6,6 +6,7 @@ import RadarChart from './RadarChart';
 import Playlist from './Playlist';
 import './styles/HomePage.css';
 import { Link, Element, scroller } from 'react-scroll';
+import { addTraitsToUsers, getDateTraitsByUser } from '../firebase';
 
 
 const FormBox = () => {
@@ -74,6 +75,8 @@ const FormBox = () => {
     setDone(true);
     setTimeout(scrollToFormBox, 200);
     
+    addTraitsToUsers(ourID, values)
+    getDateTraitsByUser(ourID, "May 21, 2023");
   };
   const scrollToFormBox = () => {
     scroller.scrollTo('playlist', {

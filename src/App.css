@@ -245,6 +245,7 @@ a {
   padding-right: 15px;
   padding-left: 15px;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .people-links .reflect-link, .people-links .arrow, .people-links .arrow::before {
@@ -257,7 +258,15 @@ a {
   background-color: #0072B1;
 
 }
+<<<<<<< HEAD
 
+=======
+.ppp-reflect-links p {
+  padding: 12px 2px;
+  font-size: 16px;
+  margin: 0;
+}
+>>>>>>> 794cf3e0f557fe5a6285b9356e92863fe8b982a8
 
 .create {
   margin-top: 10px;
