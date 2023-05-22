@@ -35,6 +35,7 @@ const HomePage = () => {
   }
 
   console.log("user = ", user);
+  
 
   return (
     <>
