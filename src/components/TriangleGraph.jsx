@@ -93,10 +93,16 @@ const TriangleGraph = () => {
     .attr("cursor", "pointer")
 );
 
+
+
+
+
     // draw the text
     vertices.forEach((v, i) => {
       const v2 = vertices[(i + 1) % 3];
       const labelPos = [(v[0] + v2[0]) / 2, (v[1] + v2[1]) / 2];
+
+      console.log(labelPos)
       
       // calculate the angle of the edge
       const dx = v2[0] - v[0];
@@ -117,6 +123,35 @@ const TriangleGraph = () => {
         .attr("font-size", "24px")
         .attr("fill", "#000000")
         .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(-75, 20)`);
+
+      const circle = svg
+        .append("circle")
+        .attr("r", 10)
+        .attr("fill", data[i].color)
+        .attr("cx", labelPos[0])
+        .attr("cy", labelPos[1])
+        .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(20, 37)`);
+
+      const line = svg
+        .append("line")
+        .attr("stroke", data[i].color)
+        .attr("stroke-width", 3)
+        .attr("x1", labelPos[0]) // x-coordinate of the starting point
+        .attr("y1", labelPos[1]) // y-coordinate of the starting point
+        .attr("x2", 375) // x-coordinate of the ending point
+        .attr("y2", labelPos[1]) // y-coordinate of the ending point
+        .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(20, 37)`);
+
+        const line2 = svg
+        .append("line")
+        .attr("stroke", data[i].color)
+        .attr("stroke-width", 3)
+        .attr("x1", 375) // x-coordinate of the starting point
+        .attr("y1", labelPos[1]+1) // y-coordinate of the starting point
+        .attr("x2", 375) // x-coordinate of the ending point
+        .attr("y2", labelPos[1]-40) // y-coordinate of the ending point
+        .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(20, 37)`);
+
       }
       else if ( i == 0) {
         const label = svg
@@ -132,6 +167,35 @@ const TriangleGraph = () => {
           .attr("font-size", "24px")
           .attr("fill", "#000000")
           .attr("transform", `rotate(${angle+180}, ${labelPos[0]}, ${labelPos[1]}) translate(75, -50)`);
+
+          const circle = svg
+        .append("circle")
+        .attr("r", 10)
+        .attr("fill", data[i].color)
+        .attr("cx", labelPos[0])
+        .attr("cy", labelPos[1])
+        .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(20, 35)`);
+
+        const line = svg
+        .append("line")
+        .attr("stroke", data[i].color)
+        .attr("stroke-width", 3)
+        .attr("x1", labelPos[0]) // x-coordinate of the starting point
+        .attr("y1", labelPos[1]) // y-coordinate of the starting point
+        .attr("x2", 287.5) // x-coordinate of the ending point
+        .attr("y2", labelPos[1]) // y-coordinate of the ending point
+        .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(20, 35)`);
+
+        const line2 = svg
+        .append("line")
+        .attr("stroke", data[i].color)
+        .attr("stroke-width", 3)
+        .attr("x1", 287.5) // x-coordinate of the starting point
+        .attr("y1", labelPos[1]+1) // y-coordinate of the starting point
+        .attr("x2", 287.5) // x-coordinate of the ending point
+        .attr("y2", labelPos[1]-40) // y-coordinate of the ending point
+        .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(20, 35)`);
+        
         }
       else {
 
@@ -148,9 +212,36 @@ const TriangleGraph = () => {
             .attr("font-size", "24px")
             .attr("fill", "#000000")
             .attr("transform", `rotate(${angle+180}, ${labelPos[0]}, ${labelPos[1]}) translate(75, -50)`);
+
+            const circle = svg
+        .append("circle")
+        .attr("r", 10)
+        .attr("fill", data[i].color)
+        .attr("cx", labelPos[0])
+        .attr("cy", labelPos[1])
+        .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(20, 35)`);
+        
+        const line = svg
+        .append("line")
+        .attr("stroke", data[i].color)
+        .attr("stroke-width", 3)
+        .attr("x1", labelPos[0]) // x-coordinate of the starting point
+        .attr("y1", labelPos[1]) // y-coordinate of the starting point
+        .attr("x2", 462.5) // x-coordinate of the ending point
+        .attr("y2", labelPos[1]) // y-coordinate of the ending point
+        .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(20, 35)`);
+
+        const line2 = svg
+        .append("line")
+        .attr("stroke", data[i].color)
+        .attr("stroke-width", 3)
+        .attr("x1", 462.5) // x-coordinate of the starting point
+        .attr("y1", labelPos[1]+1) // y-coordinate of the starting point
+        .attr("x2", 462.5) // x-coordinate of the ending point
+        .attr("y2", labelPos[1]-40) // y-coordinate of the ending point
+        .attr("transform", `rotate(${angle}, ${labelPos[0]}, ${labelPos[1]}) translate(20, 35)`);
       }
     });
-    
 
     svg.selectAll(".sub-triangle")
     .on("mouseover", function() {
