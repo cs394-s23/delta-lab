@@ -7,10 +7,13 @@ import Playlist from './Playlist';
 import './styles/HomePage.css';
 import { Link, Element, scroller } from 'react-scroll';
 import { addTraitsToUsers, getDateTraitsByUser } from '../firebase';
+import {useUser} from '../context/AuthContext';
 
 
 const FormBox = () => {
   const [values, setValues] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+
+  const {user, signIn, signOut} = useUser();
 
   //this is for expanding the lists
   const divRef1 = useRef(true);
@@ -75,8 +78,10 @@ const FormBox = () => {
     setDone(true);
     setTimeout(scrollToFormBox, 200);
     
-    addTraitsToUsers(ourID, values)
-    getDateTraitsByUser(ourID, "May 21, 2023");
+    addTraitsToUsers(user.uid, values);
+    console.log("user id", user.uid);
+
+    //getDateTraitsByUser(user.uid, "May 21, 2023");
   };
   const scrollToFormBox = () => {
     scroller.scrollTo('playlist', {
