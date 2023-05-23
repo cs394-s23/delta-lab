@@ -70,7 +70,7 @@ const HomePage = () => {
           </div>
         </div>
         </div>
-        <div className="container">
+        <div className="container" id = "trigraph-content">
           <div className="content">
            
               <TriangleGraph/>

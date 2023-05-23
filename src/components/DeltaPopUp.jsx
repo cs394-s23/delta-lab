@@ -5,25 +5,22 @@ const DeltaPopUp = ({ category, percentage, skills, centroid, color, onClose }) 
   console.log("CENTROID", centroid)
   centroid = centroid.split(",")
   console.log(color)
-    skills = skills.split(",")
+  skills = skills.split(",")
 
-    const popupStyle = {
-      position: "absolute",
-      transform: "translate(-50%, -50%)",
-      backgroundColor: color
-    }
+  const [left, top] = centroid;
+
+  const popupStyle = {
+    position: "absolute",
+    transform: "translate(-50%, -50%)",
+    left: "335px",
+    backgroundColor: color,
+    marginTop: "130px"
+  };
 
   return (
     <div id="#popup" className="popup" style={popupStyle}>
       <div className="popup-content">
-        <h2>{category}</h2>
-        <p>{percentage}% of the Delta Model</p>
-        <ul className = "skills-list">
-          {skills.map((skill) => (
-            <li key={skill}>{skill}</li>
-          ))}
-        </ul>
-        <button onClick={onClose}>Close</button>
+        <p><strong>{category}:</strong> {skills}</p>
       </div>
     </div>
   );
