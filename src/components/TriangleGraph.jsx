@@ -11,14 +11,14 @@ const TriangleGraph = () => {
   const colors = ["#4CABE1", "#0967A4", "#10946A"]
 
   const data = [
-    { category: "The People", percentage: 0, ideal_per: 38, skills: ["Professionalism (95%)", "Integrity/trustworthiness (92%)", "Treat others with respect/courtesy (92%)", "Listen attentively and respectfully (91%)"], color: "#4CABE1"},
-    { category: "The Practice", percentage: 15, ideal_per: 29, skills: ["Legal research (82%)", "Identify/gather facts and legal issues (72%)", "Draft pleadings motions and briefs (69%)", "Request/produce discovery (64%)"], color: "#0967A4" },
-    { category: "The Process", percentage: 30, ideal_per: 32, skills: ["Respond promptly (91%)", "Multitasking (75%)", "High-quality work product (70%)", "Adapting work habits (72%)"], color: "#10946A" },
+    { category: "The People", percentage: 0, ideal_per: 38, skills: "Understanding and related to clients, colleagues, and ourselves", color: "#4CABE1"},
+    { category: "The Practice", percentage: 15, ideal_per: 29, skills: "Knowing, researching, and clearly communicating the law", color: "#0967A4" },
+    { category: "The Process", percentage: 30, ideal_per: 32, skills: "Delivering legal services, efficiently & effectively", color: "#10946A" },
   ];
 
   useEffect(() => {
-    const width = 600;
-    const height = 575;
+    const width = 550;
+    const height = 400;
 
     if (!d3.select(ref.current).select("svg").empty()) {
       return; // If the SVG element already exists, don't do anything
@@ -40,19 +40,6 @@ const TriangleGraph = () => {
       .append("svg")
       .attr("width", width)
       .attr("height", height);
-
-    // Draw the triangle
-    // const path = d3.path();
-    // path.moveTo(...vertices[0]);
-    // path.lineTo(...vertices[1]);
-    // path.lineTo(...vertices[2]);
-    // path.closePath();
-
-    // svg
-    //   .append("path")
-    //   .attr("d", path)
-    //   .attr("fill", "lightblue")
-    //   .attr("stroke", "black");
 
     // Calculate the centroid of the triangle
     const [cx, cy] = vertices.reduce(
@@ -168,26 +155,47 @@ const TriangleGraph = () => {
     svg.selectAll(".sub-triangle")
     .on("mouseover", function() {
       d3.select(this).attr("fill", d3.color(d3.select(this).attr("fill")).darker());
-    })
-    .on("mouseout", function() {
-      d3.select(this).attr("fill", d3.color(d3.select(this).attr("fill")).brighter());
-    })
-    .on("click", function() {
-      console.log("CLICKED")
       const category = d3.select(this).attr("data-category");
       const percentage = d3.select(this).attr("data-percentage");
       const skills = d3.select(this).attr("data-skills");
+
+      const container = document.getElementById("trigraph-content");
+
       const popupContainer = document.createElement('div');
       const centroid = d3.select(this).attr("data-centroid");
       const color = d3.select(this).attr("data-color");
       popupContainer.id = 'popup';
-      document.body.appendChild(popupContainer);
+      container.appendChild(popupContainer);
       ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} centroid = {centroid} color = {color} onClose={() => {
         const popups = document.querySelectorAll('#popup');
-        for (let i = 0; i < popups.length; i++) {
-          popups[i].remove();
-        }
       }} />, popupContainer);
+    })
+    .on("mouseout", function() {
+      d3.select(this).attr("fill", d3.color(d3.select(this).attr("fill")).brighter());
+      const popups = document.querySelectorAll('#popup');
+      for (let i = 0; i < popups.length; i++) {
+        popups[i].remove();
+      }
+    })
+    .on("click", function() {
+      // console.log("CLICKED")
+      // const category = d3.select(this).attr("data-category");
+      // const percentage = d3.select(this).attr("data-percentage");
+      // const skills = d3.select(this).attr("data-skills");
+
+      // const container = document.getElementById("trigraph-content");
+
+      // const popupContainer = document.createElement('div');
+      // const centroid = d3.select(this).attr("data-centroid");
+      // const color = d3.select(this).attr("data-color");
+      // popupContainer.id = 'popup-container';
+      // container.appendChild(popupContainer);
+      // ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} centroid = {centroid} color = {color} onClose={() => {
+      //   const popups = document.querySelectorAll('#popup-container');
+      //   for (let i = 0; i < popups.length; i++) {
+      //     popups[i].remove();
+      //   }
+      // }} />, popupContainer);
     });
 
   }, [data]);
