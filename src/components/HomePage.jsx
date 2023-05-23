@@ -79,11 +79,8 @@ const HomePage = () => {
                   <p>The Delta Model for Entry Level Legal Professionals shifts the midpoint slightly to the right to demonstrate that regardless of the organizational role of a newly licensed attorney, the People skills are universally most critical to this success, followed by the Process and the Practice.</p>
               </div>
           </div>
-          <div className= "scroll-reminder">
-          <div className='scroll-reminder-tick'>
-          <p>scroll</p>
-          </div>
-        </div>
+          
+      
 
         </div>
         <div className = "container">

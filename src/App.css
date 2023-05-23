@@ -1,4 +1,6 @@
-
+body{
+  overflow-x: hidden;
+}
 
 
 .container{
@@ -7,7 +9,8 @@
   display : flex;
   justify-content : flex-start;
   align-items : flex-start;
- margin : 0;
+  flex-direction : column;
+
 
 }
 
@@ -29,7 +32,8 @@
 .container h5 {
   font-family: 'Comfortaa', sans-serif;
   font-weight: bold;
-  margin-bottom: 3vh;
+  margin-bottom: 1%;
+  display:inline-block;
 }
 
 
@@ -79,13 +83,6 @@
   padding : 2%;
 }
 
-}
-
-.scroll-continue {
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  font-style: italic;
-  font-size : 20px;
 }
 
 /*End*/
@@ -190,30 +187,59 @@ a {
 
 
 /* START OF SELF REFLECTION STYLING HERE */
-
+.self-reflection{
+  width : 100%;
+  padding : 2%;
+}
 .self-reflection .description {
-  width: 100%;
+  width: 70%;
 }
 
 .self-reflection .description p {
   font-size: 1.2vw;
 }
 
-.self-reflection .resource-links {
+/* .self-reflection .resource-links {
   display: flex;
   align-items: center;
+} */
+.resource-links.green {
+  border-bottom: 0.5px solid rgb(16, 149, 106);
+  margin : 0;
+  background-color: none;
+}
+.resource-links.navy {
+  border-bottom: 0.5px solid rgb(9, 103, 164);
+  background-color: none;
 }
 .resource-links.blue {
   border-bottom: 0.5px solid rgb(76, 171, 226);
+  background-color: none;
 }
 
-.self-reflection span {
+
+
+.self-reflection .smalltext{
   font-size: 1vw;
   font-style: italic;
   font-weight: 200;
   margin-left: 5%;
-}
 
+}
+.material-symbols-outlined{
+  font-size: 1.5vw;
+  margin-left: 30%;
+  margin-right: 5%;
+  color : gray  ;
+}
+.links {
+  display: none;
+  width : 100%;
+  
+}
+.links.show{
+  display: block;
+}
 .arrow {
   position: relative;
   flex-basis: 10%;
