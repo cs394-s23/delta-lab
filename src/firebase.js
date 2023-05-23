@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { initializeFirestore, doc, getDoc , updateDoc} from "firebase/firestore";
+import { initializeFirestore, doc, getDoc , updateDoc, setDoc} from "firebase/firestore";
 import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -82,6 +82,37 @@ export async function getResourcesBySkill(skill) {
   }
 }
 
+/*
+export async function addTraitsToUsers(uid, traitsArray) {
+  const currentDate = new Date();
+  const month = currentDate.toLocaleString('default', { month: 'long' });
+  const day = currentDate.getDate();
+  const year = currentDate.getFullYear();
+
+  const formattedDate = `${month} ${day}, ${year}`;
+
+  db.collection('users').doc(uid).get()
+  .then(async (docSnapshot) => {
+    if (docSnapshot.exists) {
+      db.collection('users').doc(uid)
+        .onSnapshot(async (doc) => {
+          const customId = `dates.${formattedDate}`; // Fix the template literal syntax
+          await updateDoc(doc, {
+            [customId]: traitsArray, // Use square brackets to use the value of customId as the field name
+          });
+        });
+    } else {
+      const customId = `dates.${formattedDate}`;      
+      await setDoc(doc(db, "users", uid), {
+        [customId]: traitsArray, 
+      });
+    }
+  });
+
+}
+*/
+
+
 export async function addTraitsToUsers(uid, traitsArray) {
   const currentDate = new Date();
   const month = currentDate.toLocaleString('default', { month: 'long' });
@@ -92,11 +123,17 @@ export async function addTraitsToUsers(uid, traitsArray) {
 
   const docRef = doc(db, "users", uid);
 
-  // Update the map field with a new key-value pair
-  const customId = `dates.${formattedDate}`; // Fix the template literal syntax
-  await updateDoc(docRef, {
-    [customId]: traitsArray, // Use square brackets to use the value of customId as the field name
-  });
+  const customId = `dates.${formattedDate}`;
+
+  await setDoc(
+    docRef,
+    {
+      dates: {
+        [formattedDate]: traitsArray,
+      },
+    },
+    { merge: true } // Merge the new data with existing document or create a new one
+  );
 }
 
 export async function getDateTraitsByUser(uid, formattedDate) {
