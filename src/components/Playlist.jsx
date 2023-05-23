@@ -56,7 +56,6 @@ export default function Playlist(props) {
       setIsExpanded(!isExpanded);
     }
 
-
     return (
       <a href = {resource.link} className="resource">
           <div style = {{ display: 'flex' }}>
