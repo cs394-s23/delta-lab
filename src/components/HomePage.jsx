@@ -18,6 +18,9 @@ const HomePage = () => {
   const handleButtonClick = () => {
     setButtonClicked(true);
     setTimeout(scrollToFormBox, 200);
+    if (!user) {
+      signIn();
+    }
   };
   const scrollToFormBox = () => {
     scroller.scrollTo('formBox', {
@@ -35,7 +38,7 @@ const HomePage = () => {
   }
 
   console.log("user = ", user);
-  
+
 
   return (
     <>
