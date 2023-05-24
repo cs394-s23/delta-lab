@@ -6,9 +6,9 @@ import RadarChart from './RadarChart';
 import Playlist from './Playlist';
 import './styles/HomePage.css';
 import { Link, Element, scroller } from 'react-scroll';
-import { addTraitsToUsers, getDateTraitsByUser } from '../firebase';
+import { addTraitsToUsers, getDateTraitsByUser, getDatesByUser } from '../firebase';
 import {useUser} from '../context/AuthContext';
-
+import LongMenu from './PastEntries';
 
 const FormBox = () => {
   const [values, setValues] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -79,8 +79,8 @@ const FormBox = () => {
     setTimeout(scrollToFormBox, 200);
     
     addTraitsToUsers(user.uid, values);
-    console.log("user id", user.uid);
-
+    // console.log("user id", user.uid);
+    getDatesByUser(user.uid);
     //getDateTraitsByUser(user.uid, "May 21, 2023");
   };
   const scrollToFormBox = () => {
@@ -176,6 +176,9 @@ const FormBox = () => {
       <Sticky activeClass="spiderchart">
         <div className='spiderchart'>
           <RadarChart data={values} />
+        </div>
+        <div className='past-entries'>
+          <LongMenu />
         </div>
       </Sticky>
    

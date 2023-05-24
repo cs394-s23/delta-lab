@@ -154,6 +154,25 @@ export async function getDateTraitsByUser(uid, formattedDate) {
   }
 }
 
+export async function getDatesByUser(uid) {
+  try {
+    const docRef = doc(db, "users", uid);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.data()) {
+      return null;
+    }
+
+    const dates = docSnap.data().dates;
+    console.log("HERE")
+    console.log(dates);
+    return dates;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
 export async function getResourceByPath(path) {
   try {
     const docRef = doc(db, path);
