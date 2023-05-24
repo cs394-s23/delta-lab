@@ -2,7 +2,6 @@ import React from 'react';
 import { getTop5Resources } from '../utilities';
 import { getResourceByPath} from '../firebase.js'
 import { useEffect, useState } from 'react';
-import { Grid, Paper, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faLaptopFile, faAngleUp, faAngleDown, faFileLines, faBookmark} from '@fortawesome/free-solid-svg-icons'
 
