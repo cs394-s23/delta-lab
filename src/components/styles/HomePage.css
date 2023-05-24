@@ -149,15 +149,20 @@ header .signin {
       animation:scrollFadeIn 2s;
       border-left: 1px solid #009FD4;
       bottom: 0;
+
+
       display: block;
       font-family: "Good Sans";
       height: 44px;
       left: calc(16% + 3px);
       max-width: 672px;
-      position: absolute;
+     
+      position : fixed;
       width: 100%;
       z-index: 0;
   }
+      
+  
 
   .scroll-reminder p {
       color: #767676;
