@@ -21,10 +21,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-if (isSupported()) {
-  const analytics = getAnalytics(app);
-  // Other Firebase Analytics configuration or tracking code
-}
+// if (isSupported()) {
+//   const analytics = getAnalytics(app);
+//   // Other Firebase Analytics configuration or tracking code
+// }
 // const analytics = getAnalytics(app);
 
 
