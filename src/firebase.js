@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics,isSupported } from "firebase/analytics";
 import { initializeFirestore, doc, getDoc , updateDoc, setDoc} from "firebase/firestore";
 import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
 
@@ -21,7 +21,12 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+if (isSupported()) {
+  const analytics = getAnalytics(app);
+  // Other Firebase Analytics configuration or tracking code
+}
+// const analytics = getAnalytics(app);
+
 
 export const provider = new GoogleAuthProvider();
 export const auth = getAuth();
@@ -136,6 +141,10 @@ export async function addTraitsToUsers(uid, traitsArray) {
   );
 }
 
+/*
+inputs: uid (string, user.uid), formattedDate (string, ex: "September 1, 2021")
+outputs: array of traits ([0, 1, 2, 4, 6 ...])
+*/
 export async function getDateTraitsByUser(uid, formattedDate) {
   try {
     const docRef = doc(db, "users", uid);
@@ -154,6 +163,16 @@ export async function getDateTraitsByUser(uid, formattedDate) {
   }
 }
 
+
+/*
+inputs: uid (string, user.uid)
+outputs: object of dates mapping to traits (
+  {
+    "September 1, 2021": [0, 1, 2, 4, 6 ...],
+    "September 2, 2021": [0, 1, 2, 4, 6 ...],
+  }
+)
+*/
 export async function getDatesByUser(uid) {
   try {
     const docRef = doc(db, "users", uid);

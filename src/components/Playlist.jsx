@@ -4,7 +4,7 @@ import { getResourceByPath} from '../firebase.js'
 import { useEffect, useState } from 'react';
 import { Grid, Paper, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook, faLaptopFile, faAngleUp, faAngleDown, faFileLines, faBookmark} from '@fortawesome/free-solid-svg-icons'
+import { faBookOpen, faLaptop, faAngleUp, faAngleDown, faFileLines, faBookmark, faInfoCircle, faPodcast, faCheckToSlot} from '@fortawesome/free-solid-svg-icons'
 
 export default function Playlist(props) {
   const [resources, setResources] = useState([])
@@ -41,9 +41,12 @@ export default function Playlist(props) {
   ]
 
   const media_type = {
-    "book": faBook,
-    "online course": faLaptopFile,
+    "book": faBookOpen,
+    "online course": faLaptop,
     "collection of articles": faFileLines,
+    "podcase": faPodcast,
+    "assessment": faCheckToSlot,
+    "misc": faInfoCircle,
   }
 
   const skillColors = ['#FA7979', '#71E98C', '#798DFA', '#E67F0D', '#FA7979', '#71E98C', '#798DFA', '#E67F0D', '#FA7979', '#71E98C', '#798DFA', '#E67F0D'];
@@ -60,7 +63,7 @@ export default function Playlist(props) {
       <a href = {resource.link} className="resource">
           <div style = {{ display: 'flex' }}>
             <div className = "resource-icon">
-              <FontAwesomeIcon icon={media_type[resource.media]} size="2x"/>
+              <FontAwesomeIcon icon={media_type[resource.media] ? media_type[resource.media] : media_type["misc"]} size="2x"/>
             </div>
             <div style = {{paddingLeft: '2%'}} >
               <p>{resource.name}</p>
@@ -95,9 +98,6 @@ export default function Playlist(props) {
             <div className = "skill" style={{ backgroundColor: skillColors[area], marginLeft: `${i*10}%`}}>
               <p>{skills[area]}</p>
             </div>
-            <p>
-
-            </p>
           </>
         ))}
       </div>
