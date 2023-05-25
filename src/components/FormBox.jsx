@@ -12,6 +12,7 @@ import LongMenu from './PastEntries';
 
 const FormBox = () => {
   const [values, setValues] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const [pastValues, setPastValues] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
   const {user, signIn, signOut} = useUser();
 
@@ -175,10 +176,10 @@ const FormBox = () => {
       </div>
       <Sticky activeClass="spiderchart">
         <div className='spiderchart'>
-          <RadarChart data={values} />
+          <RadarChart data={values}/>
         </div>
         <div className='past-entries'>
-          <LongMenu />
+          <LongMenu pastValues={pastValues}  setPastValues={setPastValues}/>
         </div>
       </Sticky>
    

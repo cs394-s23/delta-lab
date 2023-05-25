@@ -1,30 +1,30 @@
 import * as React from 'react';
+import { useState, useEffect} from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
-const options = [
-  'None',
-  'Atria',
-  'Callisto',
-  'Dione',
-  'Ganymede',
-  'Hangouts Call',
-  'Luna',
-  'Oberon',
-  'Phobos',
-  'Pyxis',
-  'Sedna',
-  'Titania',
-  'Triton',
-  'Umbriel',
-];
+import { useUser } from '../context/AuthContext';
+import { getDatesByUser } from '../firebase';
 
 
 const ITEM_HEIGHT = 48;
 
 export default function LongMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const {user, signin, signout} = useUser();
+  const [dates, setDates] = useState([]);
+
+  useEffect( () => {
+    async function fetchDates() {
+      const data = await getDatesByUser(user.uid);
+      setDates(Object.keys(data));
+      props.setPastValues(Object.values(data));
+    }
+    fetchDates();
+  }, [])
+
+
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -60,9 +60,9 @@ export default function LongMenu(props) {
           },
         }}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-            {option}
+        {dates.map((date) => (
+          <MenuItem key={date} selected={date === 'Current'} onClick={handleClose}>
+            {date}
           </MenuItem>
         ))}
       </Menu>
