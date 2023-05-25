@@ -6,6 +6,7 @@ import { addTraitsToUsers } from "../firebase";
 
 const RadarChart = (props) => {
   const [data, setData] = useState(props.data)
+  const [pastdata, setPastData] = useState(props.pastdata)
   console.log(props.data)
   const myLabels = [
     "Professionalism",
@@ -25,6 +26,9 @@ const RadarChart = (props) => {
   useEffect(() => {
     setData(props.data);
   }, [props.data]);
+  useEffect(() => {
+    setPastData(props.pastvalues);
+  }, [props.pastvalues]);
 
   console.log(data)
   const config = {
@@ -37,7 +41,7 @@ const RadarChart = (props) => {
           top: 5
         }
       },
-      colors: ["#bf8e35", "#292318"],
+      colors: ["#bf8e35", "#292318" , "#a9a9a9"],
       labels: myLabels,
       stroke: {
         width: 2
@@ -55,8 +59,12 @@ const RadarChart = (props) => {
         data: data
       },
       {
-        name: "Future",
+        name: "Ideal",
         data: [9, 10, 9, 10, 8, 9, 10, 9, 10, 7, 10, 8]
+      },
+      {
+        name: "Past",
+        data: pastdata
       }
     ]
   };

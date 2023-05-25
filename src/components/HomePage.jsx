@@ -37,7 +37,7 @@ const HomePage = () => {
     signOut();
   }
 
-  console.log("user = ", user);
+  
 
 
   return (
