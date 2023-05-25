@@ -155,7 +155,7 @@ export async function getDateTraitsByUser(uid, formattedDate) {
     }
 
     const traits = docSnap.data().dates;
-    console.log(traits[formattedDate]);
+    // console.log(traits[formattedDate]);
     return traits[formattedDate];
   } catch (error) {
     console.log(error);
@@ -183,8 +183,8 @@ export async function getDatesByUser(uid) {
     }
 
     const dates = docSnap.data().dates;
-    console.log("HERE")
-    console.log(dates);
+    // console.log("HERE")
+    // console.log(dates);
     return dates;
   } catch (error) {
     console.log(error);

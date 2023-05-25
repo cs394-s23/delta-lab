@@ -13,12 +13,14 @@ export default function LongMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const {user, signin, signout} = useUser();
   const [dates, setDates] = useState([]);
+  const [selectedDate, setSelectedDate] = useState('Current');
+  const [pastentries, setpastentries] = useState([]);
 
   useEffect( () => {
     async function fetchDates() {
       const data = await getDatesByUser(user.uid);
       setDates(Object.keys(data));
-      props.setPastValues(Object.values(data));
+      setpastentries(Object.entries(data));
     }
     fetchDates();
   }, [])
@@ -32,6 +34,16 @@ export default function LongMenu(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleSelect = (date) => {
+    // setAnchorEl(null);
+    const values = pastentries.filter((entry) => entry[0] === date)[0][1];
+    props.setPastValues(values);
+   
+    console.log(values);
+    
+  };
+
+
 
   return (
     <div>
@@ -61,7 +73,7 @@ export default function LongMenu(props) {
         }}
       >
         {dates.map((date) => (
-          <MenuItem key={date} selected={date === 'Current'} onClick={handleClose}>
+          <MenuItem key={date} selected={date === selectedDate} onClick={handleSelect(date)}>
             {date}
           </MenuItem>
         ))}

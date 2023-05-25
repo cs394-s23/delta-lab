@@ -176,7 +176,7 @@ const FormBox = () => {
       </div>
       <Sticky activeClass="spiderchart">
         <div className='spiderchart'>
-          <RadarChart data={values}/>
+          <RadarChart data={values} pastvalues={pastValues}/>
         </div>
         <div className='past-entries'>
           <LongMenu pastValues={pastValues}  setPastValues={setPastValues}/>
