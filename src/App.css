@@ -2,6 +2,25 @@ body{
   overflow-x: hidden;
 }
 
+/* button styling */
+body button {
+  padding: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5vw;
+  border-radius: 10px;
+  border: none;
+  background-color: #686868;
+  color:rgb(247, 247, 247)
+}
+
+.analyze-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
 
 .container{
   width : 100vw;
@@ -146,7 +165,7 @@ hr {
 a {
   text-decoration: none;
   color: #333;
-  width: 90%
+  width: 100%
 }
 
 
@@ -155,7 +174,9 @@ a {
 .center-container {
   display: flex;
   justify-content: center;
-
+  width: 100vw;
+  margin-top:-25px;
+  margin-bottom: 20px;
 }
 
 .resource .bookmark {
