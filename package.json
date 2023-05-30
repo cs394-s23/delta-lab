@@ -1,7 +1,6 @@
 {
   "name": "delta-app",
   "version": "0.1.0",
-  "homepage": "https://cs394-s23.github.io/delta-lab",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -28,7 +27,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "firebase build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
