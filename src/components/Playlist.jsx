@@ -54,33 +54,42 @@ export default function Playlist(props) {
   function Resource(props) {
     const [isExpanded, setIsExpanded] = useState(false);
     const resource = props.data;
+    console.log("data", resource)
     
     function handleClick() {
       setIsExpanded(!isExpanded);
     }
+    console.log("threeSkills", threeSkills)
 
     return (
       <a href = {resource.link} className="resource">
-          <div style = {{ display: 'flex' }}>
+
             <div className = "resource-icon">
               <FontAwesomeIcon icon={media_type[resource.media] ? media_type[resource.media] : media_type["misc"]} size="2x"/>
             </div>
-            <div style = {{paddingLeft: '2%'}} >
+            <div className = "resource-info">
               <p>{resource.name}</p>
-            </div>
-          </div>
-        <div style = {{display: 'flex'}}>
-            {threeSkills.map((area) => (
+              <div className = "resource-tags">
+              {threeSkills.map((area) => (
               resource.skills[area] && (
-              <div className="bookmark">      
-                <FontAwesomeIcon icon={faBookmark} style={{ color: skillColors[area]}} size = "2x"/>
-              </div> 
+              <span>{skills[area]}</span>
               )
             ))}
+              
+              
+              
+          
+
+    
+              </div>
+            
+            </div>
+        
+        
           {/* <button className = "expand-btn" onClick = {handleClick}>
             <FontAwesomeIcon icon={isExpanded ? faAngleDown : faAngleUp} size="2x"/>
           </button> */}
-        </div>   
+ 
       </a>    
     );
   }
@@ -89,26 +98,16 @@ export default function Playlist(props) {
   if (resources){
   return (
     <div className="playlist">
-      <div>
-        <h1>Here are your 3 areas of focus...</h1>
-      </div>
-      <div className = "skills-def">
-        {props.leastValues.map((area, i) => (
-          <>
-            <div className = "skill" style={{ backgroundColor: skillColors[area], marginLeft: `${i*10}%`}}>
-              <p>{skills[area]}</p>
-            </div>
-          </>
-        ))}
-      </div>
-      <div className = "playlist-header">
-        <h1>Here are your top 5 resources...</h1>
-      </div>
+      
+        <h2>Your Top 5 Resources</h2>
+     
       {resources.map((resource) => (
         (resource &&
           <Resource data = {resource}/>
       )
       ))}
+      <a >
+      More </a>
     </div>
   );
   }

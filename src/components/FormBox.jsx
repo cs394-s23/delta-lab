@@ -152,9 +152,12 @@ const FormBox = () => {
             smooth={true}
             duration={1000}
           >
-            <button className='Done' onClick={handleDone} >
-              Analyze
-            </button>
+            <div className="analyze-container">
+              <button className='analyze-button' onClick={handleDone} >
+                Analyze Your Skills
+              </button>
+            </div>
+            
           </Link>
 
       </div>
@@ -170,9 +173,10 @@ const FormBox = () => {
       <Sticky activeClass="spiderchart">
         <div className='spiderchart'>
           <RadarChart data={values} pastvalues={pastValues}/>
+          <LongMenu pastValues={pastValues}  setPastValues={setPastValues}/>
         </div>
         <div className='past-entries'>
-          <LongMenu pastValues={pastValues}  setPastValues={setPastValues}/>
+         
         </div>
       </Sticky>
    

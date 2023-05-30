@@ -73,7 +73,7 @@ export default function LongMenu(props) {
         }}
       >
         {dates.map((date) => (
-          <MenuItem key={date} selected={date === selectedDate} onClick={handleSelect(date)}>
+          <MenuItem key={date} selected={date === selectedDate} onClick={() => {handleSelect(date)}}>
             {date}
           </MenuItem>
         ))}

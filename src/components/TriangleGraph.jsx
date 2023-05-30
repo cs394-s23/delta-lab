@@ -255,15 +255,15 @@ const TriangleGraph = () => {
       const popupContainer = document.createElement('div');
       const centroid = d3.select(this).attr("data-centroid");
       const color = d3.select(this).attr("data-color");
-      popupContainer.id = 'popup';
+      popupContainer.id = 'popup-container';
       container.appendChild(popupContainer);
       ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} centroid = {centroid} color = {color} onClose={() => {
-        const popups = document.querySelectorAll('#popup');
+        const popups = document.querySelectorAll('#popup-container');
       }} />, popupContainer);
     })
     .on("mouseout", function() {
       d3.select(this).attr("fill", d3.color(d3.select(this).attr("fill")).brighter());
-      const popups = document.querySelectorAll('#popup');
+      const popups = document.querySelectorAll('#popup-container');
       for (let i = 0; i < popups.length; i++) {
         popups[i].remove();
       }
