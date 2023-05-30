@@ -1,36 +1,45 @@
-import { render, screen } from '@testing-library/react';
-import { useUser, UserProvider } from '../../context/AuthContext';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { UserProvider, useUser } from '../../context/AuthContext';
+import HomePage from '../HomePage';
 import FormBox from '../FormBox';
-import App from '../../App'
 
-describe('App', () => {
-  it('renders App component', () => {
-    render(<App />);
-  });
+
+jest.mock('../../context/AuthContext', () => ({
+  useUser: jest.fn(),
+  UserProvider: jest.fn(({ children }) => children),
+}));
+
+// jest.mock('../TriangleGraph', () => require('../__mocks__/svg-mock'));
+
+jest.mock('../RadarChart', () => {
+  const RadarChartMock = () => <div />;
+  RadarChartMock.displayName = 'RadarChart';
+  return RadarChartMock;
 });
 
+test('renders text containing "foundational"', () => {
+  const user = {
+    providerId: 'firebase',
+    proactiveRefresh: {},
+    reloadUserInfo: {},
+    reloadListener: null,
+    uid: 'LRI8P6tBCTMO3Bfpi4aRscO5OGx1',
+    // Add other properties as needed
+  };
 
-test('renders text containing "Delta"', () => {
-  render(<App />);
-  const deltaTextElements = screen.getAllByText(/Delta/i);
-  expect(deltaTextElements.length).toBeGreaterThan(0);
+  useUser.mockReturnValue({ user });
+
+  render(
+      <HomePage>
+        <FormBox />
+      </HomePage>
+  );
+
+  const button = screen.getByRole('button', { name: 'Create Your Playlist' });
+  fireEvent.click(button)
+
+
+  const formBoxTextElements = screen.getAllByText(/foundational/i);
+  expect(formBoxTextElements.length).toBeGreaterThan(11);
+  expect(formBoxTextElements.length).not.toBeGreaterThan(12);
 });
-
-// jest.mock('../../context/AuthContext', () => ({
-//   useUser: jest.fn(),
-// }));
-
-// test('renders text containing "People"', () => {
-//   useUser.mockReturnValue({
-//     user: 'mockedUser',
-//     signIn: jest.fn(),
-//     signOut: jest.fn(),
-//   });
-
-//   render(
-//     <UserProvider>
-//       <FormBox />
-//     </UserProvider>
-      
-//   );
-// });

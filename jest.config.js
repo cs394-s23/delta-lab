@@ -1,4 +1,4 @@
-const esModules = ['d3', 'd3-array'].join('|');
+// const esModules = ['d3', 'd3-array'].join('|');
 
 
 module.exports = {
@@ -9,9 +9,10 @@ module.exports = {
     '^.+\\.svg$': 'jest-svg-transformer',
     'd3': 'jest-transform-stub',
   },
-  transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
+  // transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
   presets: [
     '@babel/preset-env',
     ['@babel/preset-react', {runtime: 'automatic'}],
   ],
+  maxWorkers: 1,
 };

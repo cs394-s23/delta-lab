@@ -65,22 +65,18 @@ const FormBox = () => {
     sliderdict[i] = values[i]
   }
 
-  console.log("DICT", sliderdict)
 
   const sortedValues = Object.entries(sliderdict).sort((a, b) => a[1] - b[1]);
 
-  console.log("SORTED", sortedValues)
   const lowestKeys = sortedValues
     .slice(0,3)
     .map(entry => entry[0])
-  console.log("LOWEST", lowestKeys)
-  console.log(values, "VALUESSSS")
+
   const handleDone = () => {
     setDone(true);
     setTimeout(scrollToFormBox, 200);
     
     addTraitsToUsers(user.uid, values);
-    // console.log("user id", user.uid);
     getDatesByUser(user.uid);
     //getDateTraitsByUser(user.uid, "May 21, 2023");
   };
@@ -121,7 +117,6 @@ const FormBox = () => {
           {labels1.map((key, i) => (
             <div className="slide">
               <div>{key}</div>
-              {/* {console.log(key)} */}
               <UserInput value={values[i]} onChange={(value) => handleValueChange(value, i)}/>
             </div>
           ))}
@@ -134,7 +129,6 @@ const FormBox = () => {
     {labels2.map((key, i) => (
       <div className="slide">
         <div>{key}</div>
-        {/* {console.log(key)} */}
         <UserInput value={values[4+i]} onChange={(value) => handleValueChange(value, 4+i)} />
       </div>
     ))}
@@ -146,7 +140,6 @@ const FormBox = () => {
       {labels3.map((key, i) => (
         <div className="slide">
           <div>{key}</div>
-          {/* {console.log(key)} */}
           <UserInput value={values[8+i]} onChange={(value) => handleValueChange(value, 8+i)} />
         </div>
       ))}

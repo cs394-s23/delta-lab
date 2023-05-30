@@ -45,6 +45,7 @@ export const UserProvider = ({ children }) => {
         signIn,
         signOut
     };
+    console.log(values)
 
     return <UserContext.Provider value={values}>{children}</UserContext.Provider>
 };
