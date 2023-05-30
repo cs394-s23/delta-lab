@@ -70,10 +70,12 @@ const HomePage = () => {
           </div>
         </div>
         </div>
-        <div className="container" id = "trigraph-content">
+        <div className="container">
           <div className="content">
            
-              <TriangleGraph/>
+              <div id = "trigraph-content">
+                <TriangleGraph/> 
+              </div>
               {/* <span>Delta Model for Entry Level Legal Professionals</span> */}
             
               <div className="description">
