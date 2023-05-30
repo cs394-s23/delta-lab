@@ -195,12 +195,20 @@ a {
   width : 100%;
   padding : 2%;
 }
-.self-reflection .description {
+.self-reflection .self-description {
   width: 88%;
 }
 
-.self-reflection .description p {
-  font-size: 1.2vw;
+.self-description p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.self-caption {
+  line-height: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-size : 1.5vw;
+  width : 100%;
+  
 }
 
 /* .self-reflection .resource-links {
@@ -220,7 +228,6 @@ a {
   border-bottom: 0.5px solid rgb(76, 171, 226);
   background-color: none;
 }
-
 
 
 .self-reflection .smalltext{
@@ -243,7 +250,28 @@ a {
 }
 .links.show{
   display: block;
+  font-size: 1.2vw;
 }
+
+.links.show p {
+  font-style: italic;
+}
+
+#people-links {
+  text-decoration: underline;
+  text-decoration-color: rgb(76, 171, 226);
+}
+
+#process-links {
+  text-decoration: underline;
+  text-decoration-color: rgb(16, 149, 106);
+}
+
+#practice-links {
+  text-decoration: underline;
+  text-decoration-color: rgb(9, 103, 164);
+}
+
 .arrow {
   position: relative;
   flex-basis: 10%;
