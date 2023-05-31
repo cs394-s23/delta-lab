@@ -6,7 +6,7 @@ export default function UserInput(props) {
 
   const handleSliderChange = (event, newValue) => {
     onChange(newValue);
-    //console.log(newValue)
+  
   };
 
   return (

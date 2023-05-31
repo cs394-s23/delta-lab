@@ -21,48 +21,16 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// if (isSupported()) {
-//   const analytics = getAnalytics(app);
-//   // Other Firebase Analytics configuration or tracking code
-// }
-// const analytics = getAnalytics(app);
+
 
 
 export const provider = new GoogleAuthProvider();
 export const auth = getAuth();
 
-/*
-getRedirectResult(auth)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access Google APIs.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-
-    // The signed-in user info.
-    const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
-  */
 
 let settings = {}
 export const db = initializeFirestore(app, settings)
 
-// firebase querying and finding data goes below...
-
-/*
-skills: 0-11
-returns array of refs [ref1, ref2, ...]
-*/
 export async function getResourcesBySkill(skill) {
   try {
     const docRef = doc(db, "testSkills", skill);
@@ -78,7 +46,7 @@ export async function getResourcesBySkill(skill) {
       paths.push(resource.path);
     });
 
-    //console.log(paths);
+    
 
     return paths;
   } catch (error) {
@@ -87,35 +55,7 @@ export async function getResourcesBySkill(skill) {
   }
 }
 
-/*
-export async function addTraitsToUsers(uid, traitsArray) {
-  const currentDate = new Date();
-  const month = currentDate.toLocaleString('default', { month: 'long' });
-  const day = currentDate.getDate();
-  const year = currentDate.getFullYear();
 
-  const formattedDate = `${month} ${day}, ${year}`;
-
-  db.collection('users').doc(uid).get()
-  .then(async (docSnapshot) => {
-    if (docSnapshot.exists) {
-      db.collection('users').doc(uid)
-        .onSnapshot(async (doc) => {
-          const customId = `dates.${formattedDate}`; // Fix the template literal syntax
-          await updateDoc(doc, {
-            [customId]: traitsArray, // Use square brackets to use the value of customId as the field name
-          });
-        });
-    } else {
-      const customId = `dates.${formattedDate}`;      
-      await setDoc(doc(db, "users", uid), {
-        [customId]: traitsArray, 
-      });
-    }
-  });
-
-}
-*/
 
 
 export async function addTraitsToUsers(uid, traitsArray) {
@@ -137,14 +77,11 @@ export async function addTraitsToUsers(uid, traitsArray) {
         [formattedDate]: traitsArray,
       },
     },
-    { merge: true } // Merge the new data with existing document or create a new one
+    { merge: true } 
   );
 }
 
-/*
-inputs: uid (string, user.uid), formattedDate (string, ex: "September 1, 2021")
-outputs: array of traits ([0, 1, 2, 4, 6 ...])
-*/
+
 export async function getDateTraitsByUser(uid, formattedDate) {
   try {
     const docRef = doc(db, "users", uid);
@@ -155,7 +92,7 @@ export async function getDateTraitsByUser(uid, formattedDate) {
     }
 
     const traits = docSnap.data().dates;
-    // console.log(traits[formattedDate]);
+   
     return traits[formattedDate];
   } catch (error) {
     console.log(error);
@@ -164,15 +101,7 @@ export async function getDateTraitsByUser(uid, formattedDate) {
 }
 
 
-/*
-inputs: uid (string, user.uid)
-outputs: object of dates mapping to traits (
-  {
-    "September 1, 2021": [0, 1, 2, 4, 6 ...],
-    "September 2, 2021": [0, 1, 2, 4, 6 ...],
-  }
-)
-*/
+
 export async function getDatesByUser(uid) {
   try {
     const docRef = doc(db, "users", uid);
@@ -183,8 +112,6 @@ export async function getDatesByUser(uid) {
     }
 
     const dates = docSnap.data().dates;
-    // console.log("HERE")
-    // console.log(dates);
     return dates;
   } catch (error) {
     console.log(error);

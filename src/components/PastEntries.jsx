@@ -16,6 +16,7 @@ export default function LongMenu(props) {
   const [selectedDate, setSelectedDate] = useState('Current');
   const [pastentries, setpastentries] = useState([]);
 
+
   useEffect( () => {
     async function fetchDates() {
       const data = await getDatesByUser(user.uid);
@@ -39,7 +40,7 @@ export default function LongMenu(props) {
     const values = pastentries.filter((entry) => entry[0] === date)[0][1];
     props.setPastValues(values);
    
-    console.log(values);
+   
     
   };
 

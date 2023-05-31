@@ -15,9 +15,7 @@ function App() {
       <UserProvider>
         <HomePage/>
       </UserProvider>
-      {/* <Grid container spacing={3}>
-      <FormBox></FormBox>
-      </Grid> */}
+      
     </div>
    
 

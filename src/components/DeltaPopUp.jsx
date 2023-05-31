@@ -2,9 +2,9 @@ import React from "react";
 import "./styles/DeltaPopUp.css";
 
 const DeltaPopUp = ({ category, percentage, skills, centroid, color, onClose }) => {
-  console.log("CENTROID", centroid)
+
   centroid = centroid.split(",")
-  console.log(color)
+
   skills = skills.split(",")
 
   const [left, top] = centroid;

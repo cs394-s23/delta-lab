@@ -1,19 +1,5 @@
 import { getResourcesBySkill } from "./firebase";
-/*
-props.top = [1,2,3]
 
-res = getResourcesBySkill(1,2,3);  --> list of paths
-
-scores = {}
-
-for skill in skills
-    for res in getresourcesbyskill(skill)
-        if scores[res]
-            scores[res] ++
-        else
-            scores[res] = 1
-
-*/
 export async function getTop5Resources(skills) {
     const scores = {};
     await Promise.all(skills.map(async (skill) => {
@@ -36,7 +22,7 @@ export async function getTop5Resources(skills) {
     
     const top5 = Object.keys(sortedScores).slice(0, Math.min(5, Object.keys(sortedScores).length));
 
-    console.log("top5", top5);
+    
     
     return top5;
 }

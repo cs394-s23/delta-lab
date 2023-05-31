@@ -25,11 +25,21 @@ const FormBox = () => {
   const [fourBox3, setFourBox3] = useState(false)
   const [done , setDone] = useState(false)
 
-  
-  const chartStyle = {
-    marginTop: '20%',
-    marginLeft: '20%'
-  };
+  const skills = [
+    "Professionalism",
+    "Integrity/Trustworthiness",
+    "Treat others with respect/courtesy",
+    "Listen Attentively & Respectfully",
+    "Respond Promptly",
+    "Multitasking",
+    "Using & Evaluating Tech Tools",
+    "Adapting Work Habits",
+    "Legal Research",
+    "Identity & Gather Facts and Legal Issues",
+    "Draft Pleadings Motions Briefs",
+    "Request/Produce Discovery",
+  ]
+ 
   const labels1 = [
     "Professionalism",
     "Integrity/Trustworthiness",
@@ -165,19 +175,17 @@ const FormBox = () => {
       {done && (
         <div className>
           <Element name='playlist' className='playlist'>
-              <Playlist leastValues={lowestKeys}/>
+              <Playlist leastValues={lowestKeys} />
           </Element>
         </div>
           )}  
       </div>
       <Sticky activeClass="spiderchart">
         <div className='spiderchart'>
-          <RadarChart data={values} pastvalues={pastValues}/>
+          <RadarChart data={values} pastvalues={pastValues} top3={lowestKeys} skills = {skills} done={done} />
           <LongMenu pastValues={pastValues}  setPastValues={setPastValues}/>
         </div>
-        <div className='past-entries'>
-         
-        </div>
+        
       </Sticky>
    
       

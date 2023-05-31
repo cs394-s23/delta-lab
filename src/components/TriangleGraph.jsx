@@ -102,7 +102,7 @@ const TriangleGraph = () => {
       const v2 = vertices[(i + 1) % 3];
       const labelPos = [(v[0] + v2[0]) / 2, (v[1] + v2[1]) / 2];
 
-      console.log(labelPos)
+      
       
       // calculate the angle of the edge
       const dx = v2[0] - v[0];
@@ -268,26 +268,7 @@ const TriangleGraph = () => {
         popups[i].remove();
       }
     })
-    .on("click", function() {
-      // console.log("CLICKED")
-      // const category = d3.select(this).attr("data-category");
-      // const percentage = d3.select(this).attr("data-percentage");
-      // const skills = d3.select(this).attr("data-skills");
-
-      // const container = document.getElementById("trigraph-content");
-
-      // const popupContainer = document.createElement('div');
-      // const centroid = d3.select(this).attr("data-centroid");
-      // const color = d3.select(this).attr("data-color");
-      // popupContainer.id = 'popup-container';
-      // container.appendChild(popupContainer);
-      // ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} centroid = {centroid} color = {color} onClose={() => {
-      //   const popups = document.querySelectorAll('#popup-container');
-      //   for (let i = 0; i < popups.length; i++) {
-      //     popups[i].remove();
-      //   }
-      // }} />, popupContainer);
-    });
+  
 
   }, [data]);
 

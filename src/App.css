@@ -6,11 +6,11 @@ body{
 body button {
   padding: 15px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5vw;
+  font-size: 1.2;
   border-radius: 10px;
-  border: none;
-  background-color: #686868;
-  color:rgb(247, 247, 247)
+  border: 2px solid #1e152a;
+  background-color: transparent;
+  color:#1e152a;
 }
 
 .analyze-container {
@@ -34,10 +34,11 @@ body button {
 }
 
 .container h1 {
-  font-family: 'Comfortaa', cursive;
+ font-family: 'Open Sans', sans-serif;
   font-size: 3vw;
   font-weight: bold;
   margin-bottom: 3vh;
+  color:#5998c5;
   
  
 }
@@ -128,10 +129,23 @@ body button {
   text-align: center;
   
 }
-.playlist h2 {
-  margin-bottom : 0;
-}
 
+ 
+
+.playlist h2 , .self-description h1{
+  
+  margin-bottom : 0;
+  color : #5998c5;
+  text-align: center;
+}
+.playlist li {
+  font-size : 1.5vw;
+  margin-left : 5%;
+  margin-bottom : 1%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  white-space: nowrap;
+}
 
 hr {
   border: 0;
@@ -166,7 +180,7 @@ hr {
   width : 5vh;
   padding: 2%;
   align-self: center;
-  border : 1px solid black;
+  border : 1px solid #5998c5;
   border-radius : 20%;
   text-align: center;
   
@@ -219,11 +233,12 @@ a {
 
 /* START OF SELF REFLECTION STYLING HERE */
 .self-reflection{
-  width : 100%;
+  width : 85%;
+  align-self: center;
   padding : 2%;
 }
 .self-reflection .self-description {
-  width: 88%;
+  width: 100%;
 }
 
 .self-description p {

@@ -9,7 +9,8 @@ import { faBookOpen, faLaptop, faAngleUp, faAngleDown, faFileLines, faBookmark, 
 export default function Playlist(props) {
   const [resources, setResources] = useState([])
 
-  // console.log("INPUT", props.leastValues)
+
+
   const threeSkills = props.leastValues
   useEffect(() => {
     async function fetchResources() {
@@ -49,23 +50,33 @@ export default function Playlist(props) {
     "misc": faInfoCircle,
   }
 
-  const skillColors = ['#FA7979', '#71E98C', '#798DFA', '#E67F0D', '#FA7979', '#71E98C', '#798DFA', '#E67F0D', '#FA7979', '#71E98C', '#798DFA', '#E67F0D'];
+  const skillColors = ["#0d7a71",
+  "#c90d7a",
+  "#7ac90d",
+  "#7a0d9c",
+  "#9c7a0d",
+  "#0d4a7a",
+  "#7a3b0d",
+  "#0d9c7a",
+  "#7a0d28",
+  "#bf3575",
+  "#3b0d7a"]
 
   function Resource(props) {
     const [isExpanded, setIsExpanded] = useState(false);
     const resource = props.data;
-    console.log("data", resource)
+    
     
     function handleClick() {
       setIsExpanded(!isExpanded);
     }
-    console.log("threeSkills", threeSkills)
+   
 
     return (
       <a href = {resource.link} className="resource">
 
             <div className = "resource-icon">
-              <FontAwesomeIcon icon={media_type[resource.media] ? media_type[resource.media] : media_type["misc"]} size="2x"/>
+              <FontAwesomeIcon icon={media_type[resource.media] ? media_type[resource.media] : media_type["misc"]} size="2x" color= "#5998c5"/>
             </div>
             <div className = "resource-info">
               <p>{resource.name}</p>
@@ -84,11 +95,6 @@ export default function Playlist(props) {
               </div>
             
             </div>
-        
-        
-          {/* <button className = "expand-btn" onClick = {handleClick}>
-            <FontAwesomeIcon icon={isExpanded ? faAngleDown : faAngleUp} size="2x"/>
-          </button> */}
  
       </a>    
     );
@@ -98,16 +104,18 @@ export default function Playlist(props) {
   if (resources){
   return (
     <div className="playlist">
+
       
         <h2>Your Top 5 Resources</h2>
+        <p>These resouces will help you improve in the 3 areas you are less proficient</p>
+
      
       {resources.map((resource) => (
         (resource &&
           <Resource data = {resource}/>
       )
       ))}
-      <a >
-      More </a>
+      
     </div>
   );
   }
