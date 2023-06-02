@@ -120,12 +120,12 @@ const FormBox = () => {
    
     <div className="content">
       <div className="side">
-      <div className='sliders'>
+      <div className='sliders' data-testid="practice-sliders">
       <div className='slider'>
         <div onClick={handleClickDiv1} className="box" id="blue">People </div>
           <div className="skillsList" style={divStyle1} ref={divRef1}>
           {labels1.map((key, i) => (
-            <div className="slide">
+            <div  key={i} className="slide">
               <div>{key}</div>
               <UserInput value={values[i]} onChange={(value) => handleValueChange(value, i)}/>
             </div>
@@ -133,27 +133,27 @@ const FormBox = () => {
           </div>
     </div>
     
-    <div className='slider'>
+    <div className='slider' >
       <div onClick={handleClickDiv2} className="box" id="green">Process </div>
       <div className="skillsList" style={divStyle2} ref={divRef2}>
     {labels2.map((key, i) => (
-      <div className="slide">
+      <div  key={i} className="slide">
         <div>{key}</div>
         <UserInput value={values[4+i]} onChange={(value) => handleValueChange(value, 4+i)} />
       </div>
     ))}
     </div>
     </div>
-    <div className='slider'>
-    <div onClick={handleClickDiv3} className="box" id="navy">Practice </div>
-    <div className="skillsList" style={divStyle3} ref={divRef3}>
-      {labels3.map((key, i) => (
-        <div className="slide">
-          <div>{key}</div>
-          <UserInput value={values[8+i]} onChange={(value) => handleValueChange(value, 8+i)} />
-        </div>
-      ))}
-    </div>
+    <div className='slider' >
+      <div onClick={handleClickDiv3} className="box" id="navy">Practice </div>
+      <div className="skillsList" style={divStyle3} ref={divRef3}>
+        {labels3.map((key, i) => (
+          <div key={i} className="slide">
+            <div>{key}</div>
+            <UserInput value={values[8+i]} onChange={(value) => handleValueChange(value, 8+i)} />
+          </div>
+        ))}
+      </div>
     </div>
         <Link
             activeClass='active'
@@ -161,6 +161,7 @@ const FormBox = () => {
             spy={true}
             smooth={true}
             duration={1000}
+            data-testid='analyze-link'
           >
             <div className="analyze-container">
               <button className='analyze-button' onClick={handleDone} >
@@ -175,7 +176,7 @@ const FormBox = () => {
       {done && (
         <div className>
           <Element name='playlist' className='playlist'>
-              <Playlist leastValues={lowestKeys} />
+              <Playlist leastValues={lowestKeys} data-testid='playlist-component'/>
           </Element>
         </div>
           )}  

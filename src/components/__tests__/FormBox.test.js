@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { UserProvider, useUser } from '../../context/AuthContext';
+import { useUser } from '../../context/AuthContext';
 import HomePage from '../HomePage';
 import FormBox from '../FormBox';
 
@@ -16,8 +16,7 @@ jest.mock('../RadarChart', () => {
   RadarChartMock.displayName = 'RadarChart';
   return RadarChartMock;
 });
-
-test('renders text containing "foundational"', () => {
+describe('Formbox Tests (Lev, harder)', () => {
   const user = {
     providerId: 'firebase',
     proactiveRefresh: {},
@@ -26,20 +25,45 @@ test('renders text containing "foundational"', () => {
     uid: 'LRI8P6tBCTMO3Bfpi4aRscO5OGx1',
     // Add other properties as needed
   };
+  test('renders text containing "foundational"', () => {
+    useUser.mockReturnValue({ user });
+    render(
+        <HomePage>
+          <FormBox />
+        </HomePage>
+    );
+    const button = screen.getByRole('button', { name: 'Create Your Playlist' });
+    fireEvent.click(button)
 
-  useUser.mockReturnValue({ user });
+    const formBoxTextElements = screen.getAllByText(/foundational/i);
+    expect(formBoxTextElements.length).toBeGreaterThan(11);
+    expect(formBoxTextElements.length).not.toBeGreaterThan(12);
+  })
+  // ,
+  // test('FAILS: renders text containing "foundational"', () => {
+  //   const user = {
+  //     providerId: 'firebase',
+  //     proactiveRefresh: {},
+  //     reloadUserInfo: {},
+  //     reloadListener: null,
+  //     uid: 'LRI8P6tBCTMO3Bfpi4aRscO5OGx1',
+  //     // Add other properties as needed
+  //   };
 
-  render(
-      <HomePage>
-        <FormBox />
-      </HomePage>
-  );
+  //   useUser.mockReturnValue({ user });
 
-  const button = screen.getByRole('button', { name: 'Create Your Playlist' });
-  fireEvent.click(button)
+  //   render(
+  //       <HomePage>
+  //         <FormBox />
+  //       </HomePage>
+  //   );
+
+  //   const button = screen.getByRole('button', { name: 'Create Your Playlist' });
+  //   fireEvent.click(button)
 
 
-  const formBoxTextElements = screen.getAllByText(/foundational/i);
-  expect(formBoxTextElements.length).toBeGreaterThan(11);
-  expect(formBoxTextElements.length).not.toBeGreaterThan(12);
+  //   const formBoxTextElements = screen.getAllByText(/stupid/i);
+  //   expect(formBoxTextElements.length).toBeGreaterThan(11);
+  //   expect(formBoxTextElements.length).not.toBeGreaterThan(12);
+  // })
 });
