@@ -1,247 +1,211 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
+About The Project
+-------------
 
+The Design Your Delta app helps law students recognize that success in the law is based on a broad skill set beyond the traditional focus on “how to think like a lawyer” skills taught in the first year curriculum at all law schools. Students will interact with the app in the following ways:
 
+Show picture of the Delta Model 
+Ask students to rate their skill level in twelve different areas (four for each side of the model) using terms such as: foundational, mature, proficient
+Present students with a growth chart: two spider graphs that compare their current skill level and the ideal skill level
+Provide playlist of resources that will help them grow in the areas most lacking according to the skill chart
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+## Built With
 
+- React
+- Firebase
+- Material UI
+- Jest
+- ApexCharts
 
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/cs394-s23/delta-lab">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">project_title</h3>
-
-  <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
-  </p>
-</div>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This guide provides step-by-step instructions for installing the delta-lab repository with Jest and Firebase.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Before proceeding with the installation, ensure that you have the following software installed on your system:
 
-### Installation
+- Node.js (version >= 12.x)
+- NPM (Node Package Manager)
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
+### Installation Steps
+
+1. Clone the repository to your local machine using the following command:
+    ```bash
+   git clone <repository-url>
    ```
-3. Install NPM packages
-   ```sh
+
+2. Navigate to the repository's directory:
+    ```bash
+   cd <repository-directory>
+   ```
+
+3. Install the required dependencies using NPM:
+    ```bash
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+
+4. Once the installation is complete, you can run the project using the following command:
+    ```bash
+   npm start
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+   This command will start the development server and open the application in your default browser. You can view and test the React application locally.
+
+5. To run the Jest tests included in the repository, use the following command:
+
+   ```bash
+    npm run test
+    ```
+
+   This will execute the test suite and display the results in the terminal.
+
+## Firebase Setup:
+Step 1: Create a Firebase Project
+----
+1. Go to the Firebase Console and log in with your Firebase account. 
+2. Click on "Add project" or select an existing project.
+3. Enter a project name and choose your desired options (e.g., enabling Google Analytics).
+3. Click on "Create project" to create your Firebase project.
+
+
+Step 2: Set Up Firebase SDK
+----
+1. Install the Firebase CLI globally by running the following command in your terminal: 
+
+``` 
+npm install -g firebase-tools
+```
+
+2. Authenticate the Firebase CLI by running the following command and following the authentication steps: 
+``` 
+ firebase login
+ ```
+
+3. Initialize Firebase in your project directory by running the following command: 
+``` 
+ firebase init
+ ```
+4. Select the Firebase features you want to set up (e.g., Firestore, Authentication) using the arrow keys and press Enter.
+Follow the prompts to configure each feature, such as selecting an existing Firebase project or creating a new one.
+After configuration, Firebase will create necessary files (e.g., .firebaserc, firebase.json) in your project directory.
+
+
+Step 3: Replacing Firebase Config
+----
+1. In line 12 of firebase.js, replace the firebaseConfig JSON with your custom firebase config setup. This can be found by navigating to Project Settings -> Your Apps in your Firebase Console.
+
+Step 4: Importing Resource & Skills data into your new Firestore Database
+----
+
+1. Go to the Firebase console and navigate to your Project Settings, then click on "Service Accounts".
+2. Click on "Generate new private key" to download a JSON file to your computer.
+3. Open the utilities folder in the deltalab repository.
+4. Copy the content of the generated JSON file and paste it into the empty config.json file in the utilities folder.
+5. Open the main.py file.
+6. If you have completed the previous steps, running this script will populate your new Firestore database with the necessary data from the playlist CSV file.
+- The CSV file contains all the recommended resources for the Design Your Delta project, with each resource tagged with the corresponding skills it targets.
+- If you want to add new resources to the project, simply add them to the CSV file and run the main.py script again!
+
+Usage
+-----
+To use our app, follow these steps to test what the user will experience:
+
+1. Press the "Create Your Playlist" button to start the process.
+You will see three tabs labeled People, Process, and Practice.
+
+2. Click on each tab to access the corresponding category.
+
+3. Within each tab, you will find four categories related to that specific aspect (e.g., collaboration, communication, emotions under the People tab).
+4. Rate your proficiency in each category on a scale of 1 to 10, indicating your level of skill or comfort.
+
+5. If you want to see all four categories within a tab, simply click on the tab's button to maximize it.
+
+6. Once you have rated all the categories in each tab, click the "Analyze Your Skills" button.
+
+7. You will be directed to another page that displays the top three resources relevant to improving the three categories in which you rated yourself lowest.
+
+8. Explore the recommended resources and take advantage of the content provided to enhance your skills in those areas.
+
+### Frontend Details
+---
+
+When you start the app the homepage is rendered showing a description of the Delta Your Delta Tool. The content on this screen is defined in the HomePage.jsx file.
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Scrolling down, you will see a page with a description of the Delta Model and an interactive visualization of the model. The content on this page is also defined on HomePage.jsx and the visualization component is rendered by the DeltaPopUp.jsx component.
 
 
+You will also find a Sign In / Sign Out Button at the top right corner of the screen which controls the signIn() and signOut() functions defined in the file AuthContext.js. We used Google Authentication to sign users into our Firebase account, as described in the following documentation: Authenticate Using Google with JavaScript. When you click sign-in, you will be redirected to a Google Sign in page. We use the React Context component to hold the user object returned upon sign in. We make the user object accessible from all pages by wrapping the entire app in a React Context.Provider component.
 
-<!-- ROADMAP -->
-## Roadmap
+Scrolling further you will find a page instructing the user to reflect on their skills corresponding to the Delta Model and providing corresponding resources for reflection. 
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+Once you click the “Create Your Playlist” button a new page will appear featuring a set of sliders on the left and a spiderchart graph on the right. This page is defined in the FormBox component, which is inserted in the HomePage.jsx component when the “Create Your Playlist” button is clicked. The spiderchart graph is defined in RadarChart.jsx. The sliders control the “Current” series in the spiderchart. After you click  the “Analyze Your Skills” button your skill levels will be saved to the database according to the date the form is filled out.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+Once you click the “Analyze Your Skills” button, a page will appear showing the top 5 resources targeting your top growth areas. 
 
 
 
-<!-- CONTRIBUTING -->
-## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+If you have filled out the skills form before, the manu Past Entries will contain prior dates at which the form was filled out. Selecting one of these dates will render the “Past” series on the spiderchart. 
 
 
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+Roadmap
+----
+- [ ]  Improve Mobile responsiveness
+- [ ]  Refactor Authentication for better security protocol (i.e. SSO for students)
+- [ ]  Add Resources page with all the playlist links and additional documents from Alyson and Juliet
+- [ ]  Add option to change model/ideal spidergraph data for people at different stages of their careers.
 
-* []()
-* []()
-* []()
+Contributing
+----
+- Fork the Project
+- Create your Feature Branch (git checkout -b feature/AmazingFeature)
+- Commit your Changes (git commit -m 'Add some AmazingFeature')
+- Push to the Branch (git push origin feature/AmazingFeature)
+- Open a Pull Request
+- Resolve merge Issues and merge into main
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+Authors 
+----
+- Purple Team; Northwestern University Computer Science 394 - Intro to Agile Software Development 
+
+- Mame Coumba Ka | mameka2024@u.northwestern.edu | coumbaK
+
+- Callum Bondy | callumbondy2023@u.northwestern.edu |  cbondy100
+
+- Isaac Kim | isaackim2024@u.northwestern.edu |  ikim-2001
+
+- Max Lou | MaxLou2024@u.northwestern.edu | maxlou188
+
+- Tanya Petriv | tatyanapetriv2023@u.northwestern.edu | tanyapetriv
+
+- Lev Rosenberg | levrosenberg2024@u.northwestern.edu | lev-rosenberg
+
+
+Acknowledgements
+----
+
+- Alyson Carrel , Clinical Professor of Law, Northwestern University Pritzker School of Law
+
+- Juliet Sobel , Northwestern University Pritzker School of Law 23
 
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/cs394-s23/delta-lab/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+
+
+
+
+
+
