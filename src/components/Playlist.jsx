@@ -11,6 +11,7 @@ export default function Playlist(props) {
 
 
   const threeSkills = props.leastValues
+  console.log(threeSkills)
   useEffect(() => {
     async function fetchResources() {
       let fetched_resources = await getTop5Resources(props.leastValues);

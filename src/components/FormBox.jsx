@@ -67,15 +67,19 @@ const FormBox = () => {
     setValues(values.map((value, i) => (i === index ? newValue : value)));
   };
   const arr = [0,1,2,3,4,5,6,7,8,9,10,11]
+  [9, 10, 9, 10, 8, 9, 10, 9, 10, 7, 10, 8]
+  const ideal_skills = {0:9, 1:10, 2:9, 3:10, 4:8, 5:9, 6:10, 7:9, 8:10, 9:7, 10:10, 11:8}
   const ourID = "oZIq8NREUTYVpGxVz1pD"
 
   const sliderdict = {}
   for (let i = 0; i < values.length; i++){
-    sliderdict[i] = values[i]
+    sliderdict[i] = values[i] - ideal_skills[i]
   }
 
 
   const sortedValues = Object.entries(sliderdict).sort((a, b) => a[1] - b[1]);
+
+  console.log(sortedValues)
 
   const lowestKeys = sortedValues
     .slice(0,3)
