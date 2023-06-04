@@ -4,7 +4,6 @@ import TriangleGraph from './TriangleGraph';
 import './styles/HomePage.css';
 import FormBox from './FormBox';
 import triangle from "./assets/deltatri.png";
-import link from "./assets/Link.png";
 import SelfReflection from "./SelfReflection"
 import {useUser} from '../context/AuthContext';
 
@@ -36,9 +35,6 @@ const HomePage = () => {
   const handleSignOut = () => {
     signOut();
   }
-
-  
-
 
   return (
     <>

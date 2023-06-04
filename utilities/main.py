@@ -11,21 +11,6 @@ db = firestore.client()
 
 filename = "Playlist  - Sheet1.csv"  # Replace with the actual file name and location
 
-# with open(filename, "r") as file:
-#     reader = csv.reader(file)
-#     total_data = {}
-#     for row in reader:
-#         book_title = row[0]
-#         # Process the book title or perform any desired actions
-#         traits = []
-#         for i in range(1, 13):
-#             if row[i]:
-#                 traits.append(True)
-#             else:
-#                 traits.append(False)
-#
-#         total_data[book_title] = traits
-#         print(book_title, traits)
 
 import openpyxl
 
@@ -72,10 +57,6 @@ for row in sheet.iter_rows(min_row=1):
             if media in display_text:
                 currMediaType = media
 
-        # print(f"Hyperlink: {hyperlink}")
-        # # print(f"Display Text: {display_text}")
-        # print(f"Media Type: {currMediaType}")
-        # print("Title", title1)
         total_data["link"] = hyperlink
         total_data["media"] = currMediaType
         total_data["name"] = title1
@@ -92,10 +73,6 @@ for row in sheet.iter_rows(min_row=1):
         doc_ref.set(total_data)
         tupleArr.append((total_data, doc_ref))
 
-
-
-    # print("curr traits", currTraits)
-
         print()
 
 arrTwelveDicts = [{} for i in range(12)]
@@ -108,10 +85,6 @@ for i in range(12):
 
     doc_ref = db.collection("testSkills").document(str(i))
     doc_ref.set(arrTwelveDicts[i])
-
-
-
-
 
 # Close the workbook
 workbook.close()

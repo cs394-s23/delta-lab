@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Sticky from 'react-stickynode';
-import { Grid } from '@mui/material';
 import UserInput from './UserInput';
 import RadarChart from './RadarChart';
 import Playlist from './Playlist';
@@ -88,7 +87,6 @@ const FormBox = () => {
     
     addTraitsToUsers(user.uid, values);
     getDatesByUser(user.uid);
-    //getDateTraitsByUser(user.uid, "May 21, 2023");
   };
   const scrollToFormBox = () => {
     scroller.scrollTo('playlist', {

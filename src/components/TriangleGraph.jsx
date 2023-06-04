@@ -3,7 +3,6 @@ import * as d3 from "d3";
 import ReactDOM from "react-dom";
 import DeltaPopUp from "./DeltaPopUp.jsx";
 import "./styles/HomePage.css"
-import { color } from "@mui/system";
 
 const TriangleGraph = () => {
   const ref = useRef(null);
@@ -93,16 +92,10 @@ const TriangleGraph = () => {
     .attr("cursor", "pointer")
 );
 
-
-
-
-
     // draw the text
     vertices.forEach((v, i) => {
       const v2 = vertices[(i + 1) % 3];
       const labelPos = [(v[0] + v2[0]) / 2, (v[1] + v2[1]) / 2];
-
-      
       
       // calculate the angle of the edge
       const dx = v2[0] - v[0];
@@ -243,6 +236,7 @@ const TriangleGraph = () => {
       }
     });
 
+    // code for triangle graph hover popup
     svg.selectAll(".sub-triangle")
     .on("mouseover", function() {
       d3.select(this).attr("fill", d3.color(d3.select(this).attr("fill")).darker());
@@ -273,16 +267,11 @@ const TriangleGraph = () => {
   }, [data]);
 
   return <div >
-  
-  
-  
+
   <div ref={ref}></div>
 
   </div>
 
-
-
-  
   ;
 };
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { getTop5Resources } from '../utilities';
 import { getResourceByPath} from '../firebase.js'
 import { useEffect, useState } from 'react';
-import { Grid, Paper, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookOpen, faLaptop, faAngleUp, faAngleDown, faFileLines, faBookmark, faInfoCircle, faPodcast, faCheckToSlot} from '@fortawesome/free-solid-svg-icons'
 
@@ -86,12 +85,7 @@ export default function Playlist(props) {
               <span>{skills[area]}</span>
               )
             ))}
-              
-              
-              
-          
 
-    
               </div>
             
             </div>

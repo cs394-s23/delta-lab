@@ -1,5 +1,6 @@
 import { getResourcesBySkill } from "./firebase";
 
+// gets the top 5 resources based on the lowest spider graph skills
 export async function getTop5Resources(skills) {
     const scores = {};
     await Promise.all(skills.map(async (skill) => {

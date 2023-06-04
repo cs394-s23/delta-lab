@@ -1,8 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
-import FormBox from "./FormBox";
-import { addTraitsToUsers } from "../firebase";
 
 const RadarChart = (props) => {
   const [data, setData] = useState(props.data);
@@ -99,20 +97,12 @@ const RadarChart = (props) => {
       setMarkerStyles(newMarkerStyles);
       setTitleText({text:"Your Top Lowest Skills", align:"center"});
 
-
-      
-
-     
     }
   }, [props.done])
 
   const config = {
     options: {
       title : titletext,
-      
-   
-
-      
       chart: {
         dropShadow: {
           enabled: true,

@@ -39,12 +39,7 @@ export default function LongMenu(props) {
     // setAnchorEl(null);
     const values = pastentries.filter((entry) => entry[0] === date)[0][1];
     props.setPastValues(values);
-   
-   
-    
   };
-
-
 
   return (
     <div>
