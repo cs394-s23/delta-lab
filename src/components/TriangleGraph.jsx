@@ -71,23 +71,19 @@ const TriangleGraph = () => {
         path,
         fill: colors[i],
         category: data[i].category,
-        percentage: data[i].ideal_per,
         skills: data[i].skills,
-        centroid: centroid,
         color: data[i].color,
       };
     });
 
-    subTrianglePaths.forEach(({ path, fill, category, percentage, skills, centroid, color }) =>
+    subTrianglePaths.forEach(({ path, fill, category, skills, color }) =>
   svg
     .append("path")
     .attr("d", path)
     .attr("fill", fill)
     .attr("class", "sub-triangle")
     .attr("data-category", category)
-    .attr("data-percentage", percentage)
     .attr("data-skills", skills)
-    .attr("data-centroid", centroid)
     .attr("data-color", color)
     .attr("cursor", "pointer")
 );
@@ -241,17 +237,15 @@ const TriangleGraph = () => {
     .on("mouseover", function() {
       d3.select(this).attr("fill", d3.color(d3.select(this).attr("fill")).darker());
       const category = d3.select(this).attr("data-category");
-      const percentage = d3.select(this).attr("data-percentage");
       const skills = d3.select(this).attr("data-skills");
 
       const container = document.getElementById("trigraph-content");
 
       const popupContainer = document.createElement('div');
-      const centroid = d3.select(this).attr("data-centroid");
       const color = d3.select(this).attr("data-color");
       popupContainer.id = 'popup-container';
       container.appendChild(popupContainer);
-      ReactDOM.render(<DeltaPopUp category={category} percentage={percentage} skills = {skills} centroid = {centroid} color = {color} onClose={() => {
+      ReactDOM.render(<DeltaPopUp category={category} skills = {skills} color = {color} onClose={() => {
         const popups = document.querySelectorAll('#popup-container');
       }} />, popupContainer);
     })
