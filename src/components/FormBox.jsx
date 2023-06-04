@@ -72,7 +72,7 @@ const FormBox = () => {
   const ourID = "oZIq8NREUTYVpGxVz1pD"
 
   const sliderdict = {}
-  for (let i = 0; i < values.length; i++){
+  for (let i = 0; i < values.length; i++){ 
     sliderdict[i] = values[i] - ideal_skills[i]
   }
 
