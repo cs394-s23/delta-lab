@@ -94,6 +94,8 @@ Step 3: Replacing Firebase Config
 ----
 1. In line 12 of firebase.js, replace the firebaseConfig JSON with your custom firebase config setup. This can be found by navigating to Project Settings -> Your Apps in your Firebase Console.
 
+<img src="img/setup1.png" alt="Logo">
+
 Step 4: Importing Resource & Skills data into your new Firestore Database
 ----
 
@@ -131,31 +133,38 @@ You will see three tabs labeled People, Process, and Practice.
 
 When you start the app the homepage is rendered showing a description of the Delta Your Delta Tool. The content on this screen is defined in the HomePage.jsx file.
 
-
+<img src="img/usage1.png" alt="Logo">
 
 
 Scrolling down, you will see a page with a description of the Delta Model and an interactive visualization of the model. The content on this page is also defined on HomePage.jsx and the visualization component is rendered by the DeltaPopUp.jsx component.
 
 
+<img src="img/usage2.png" alt="Logo">
+
+
 You will also find a Sign In / Sign Out Button at the top right corner of the screen which controls the signIn() and signOut() functions defined in the file AuthContext.js. We used Google Authentication to sign users into our Firebase account, as described in the following documentation: Authenticate Using Google with JavaScript. When you click sign-in, you will be redirected to a Google Sign in page. We use the React Context component to hold the user object returned upon sign in. We make the user object accessible from all pages by wrapping the entire app in a React Context.Provider component.
 
+
 Scrolling further you will find a page instructing the user to reflect on their skills corresponding to the Delta Model and providing corresponding resources for reflection. 
+
+
+<img src="img/usage3.png" alt="Logo">
 
 
 Once you click the “Create Your Playlist” button a new page will appear featuring a set of sliders on the left and a spiderchart graph on the right. This page is defined in the FormBox component, which is inserted in the HomePage.jsx component when the “Create Your Playlist” button is clicked. The spiderchart graph is defined in RadarChart.jsx. The sliders control the “Current” series in the spiderchart. After you click  the “Analyze Your Skills” button your skill levels will be saved to the database according to the date the form is filled out.
 
 
+<img src="img/usage4.png" alt="Logo">
+
+
+
 Once you click the “Analyze Your Skills” button, a page will appear showing the top 5 resources targeting your top growth areas. 
 
 
+<img src="img/usage5.png" alt="Logo">
 
 
 If you have filled out the skills form before, the manu Past Entries will contain prior dates at which the form was filled out. Selecting one of these dates will render the “Past” series on the spiderchart. 
-
-
-
-
-
 
 
 
