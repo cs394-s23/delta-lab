@@ -15,10 +15,11 @@ const HomePage = () => {
 
   // Function to handle button click
   const handleButtonClick = () => {
-    setButtonClicked(true);
-    setTimeout(scrollToFormBox, 200);
-    if (!user) {
+    if (user == null) {
       signIn();
+    } else {
+      setButtonClicked(true);
+      setTimeout(scrollToFormBox, 200);
     }
   };
   const scrollToFormBox = () => {
