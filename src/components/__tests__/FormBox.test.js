@@ -185,8 +185,8 @@ describe('Spiderchart Test 1', () => {
 
     window.resizeTo(375, 812); // set mobile viewport dimenstions
 
-    expect(window.innerWidth).toBe(800); 
-    expect(window.innerHeight).toBe(600);
+    expect(window.innerWidth).toBe(375); 
+    expect(window.innerHeight).toBe(812);
     expect(spiderchart).toBeInTheDocument();
   });
 });
