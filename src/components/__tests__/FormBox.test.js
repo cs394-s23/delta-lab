@@ -90,7 +90,8 @@ describe('FormBox component', () => {
 
 */
 
-describe('Formbox component 1', () => {
+// Tanya Test 1: user login required to render page with sliders and spidergraph 
+describe('Formbox Test 1', () => {
   const user = {
     providerId: 'firebase',
     proactiveRefresh: {},
@@ -118,14 +119,14 @@ describe('Formbox component 1', () => {
 });
 
 
-describe('Formbox component 2', () => {
+describe('Formbox Test 2', () => {
   const user = null;
   const signIn = jest.fn();
   const signOut = jest.fn();
   test('does not render when user logged out', () => {
     useUser.mockReturnValue({ user, signIn, signOut});
     render(
-        <HomePage />
+      <HomePage />
     );
 
     expect(screen.queryByText("Professionalism")).not.toBeInTheDocument();
@@ -137,5 +138,59 @@ describe('Formbox component 2', () => {
     expect(signIn).toBeCalled();
   })
 });
+
+
+// Tanya Test 2: spidergraph displays on all screen-widths , browsers and devices
+
+describe('Spiderchart Test 1', () => {
+  beforeEach(() => {
+    window.resizeTo = function(width, height) {
+      Object.assign(this, {
+        innerWidth: width,
+        innerHeight: height,
+        outerWidth: width,
+        outerHeight: height,
+      }).dispatchEvent(new this.Event('resize'));
+    };
+  });
+
+  afterEach(() => {
+    delete window.resizeTo;
+  });
+
+  const user = {
+    providerId: 'firebase',
+    proactiveRefresh: {},
+    reloadUserInfo: {},
+    reloadListener: null,
+    uid: 'LRI8P6tBCTMO3Bfpi4aRscO5OGx1',
+    // Add other properties as needed
+  };
+  const signIn = jest.fn();
+  const signOut = jest.fn();
+  it('remains visible when screen size changes', () => {
+    useUser.mockReturnValue({ user, signIn, signOut});
+    render(<FormBox />);
+    const spiderchart = screen.getByTestId('spiderchart');
+
+    expect(window.innerWidth).toBe(1024); // Initial width
+    expect(window.innerHeight).toBe(768); // Initial height
+    expect(spiderchart).toBeInTheDocument();
+
+    window.resizeTo(800, 600); // reduce viewport dimensions
+
+    expect(window.innerWidth).toBe(800); 
+    expect(window.innerHeight).toBe(600); 
+    expect(spiderchart).toBeInTheDocument();
+
+    window.resizeTo(375, 812); // set mobile viewport dimenstions
+
+    expect(window.innerWidth).toBe(800); 
+    expect(window.innerHeight).toBe(600);
+    expect(spiderchart).toBeInTheDocument();
+  });
+});
+
+
 
 
