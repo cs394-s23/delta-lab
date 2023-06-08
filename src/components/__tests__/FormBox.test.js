@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, getByTestId } from '@testing-library/react';
 
 import { useUser } from '../../context/AuthContext';
 import App from '../../App';
@@ -92,9 +92,34 @@ describe('FormBox component', () => {
 
 */
 
+describe('button test', ()=> {
+  const user = {
+    providerId: 'firebase',
+    proactiveRefresh: {},
+    reloadUserInfo: {},
+    reloadListener: null,
+    uid: 'LRI8P6tBCTMO3Bfpi4aRscO5OGx1',
+    // Add other properties as needed
+  };
+  const signIn = jest.fn();
+  const signOut = jest.fn();
+  test("button only moves when signed in", () => {
+    useUser.mockReturnValue({ user, signIn, signOut});
+    render(
+      <HomePage/>
+    )
+    const button = screen.getByRole('button', { name: 'Create Your Playlist' });
+
+    fireEvent.click(button);
+    render(<FormBox/>)
+    const sliders = screen.getByTestId('formbox');
+    expect(sliders).toBeInTheDocument();
+
+  })
+})
+
 //coumba sliders display on screen :
 describe('sliders test', () => {
-
 
   const user = {
     providerId: 'firebase',
