@@ -73,7 +73,8 @@ export default function Playlist(props) {
    
 
     return (
-      <a href = {resource.link} className="resource">
+      
+      <a href = {resource.link} className="resource" data-testid="resource" >
 
             <div className = "resource-icon">
               <FontAwesomeIcon icon={media_type[resource.media] ? media_type[resource.media] : media_type["misc"]} size="2x" color= "#5998c5"/>
@@ -91,7 +92,9 @@ export default function Playlist(props) {
             
             </div>
  
-      </a>    
+      </a>   
+   
+
     );
   }
 
@@ -104,12 +107,13 @@ export default function Playlist(props) {
         <h2>Your Top 5 Resources</h2>
         <p>These resouces will help you improve in the 3 areas you are less proficient</p>
 
-     
+      
       {resources.map((resource) => (
         (resource &&
           <Resource data = {resource}/>
       )
       ))}
+     
       
     </div>
   );

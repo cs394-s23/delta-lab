@@ -1,4 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+
 import { useUser } from '../../context/AuthContext';
 import App from '../../App';
 import HomePage from '../HomePage';
@@ -88,7 +89,126 @@ describe('FormBox component', () => {
   })
 })
 
+
 */
+
+//coumba sliders display on screen :
+describe('sliders test', () => {
+
+
+  const user = {
+    providerId: 'firebase',
+    proactiveRefresh: {},
+    reloadUserInfo: {},
+    reloadListener: null,
+    uid: 'LRI8P6tBCTMO3Bfpi4aRscO5OGx1',
+    // Add other properties as needed
+  };
+  const signIn = jest.fn();
+  const signOut = jest.fn();
+  it('sliders display on the screen when user is logged in ', () => {
+    useUser.mockReturnValue({ user, signIn, signOut});
+    render(<FormBox />);
+    const sliders = screen.getByTestId('sliders');
+    expect(sliders).toBeInTheDocument();
+
+
+  });
+ 
+});
+describe('Sliders test 2', () => {
+  const user = null;
+  const signIn = jest.fn();
+  const signOut = jest.fn();
+  test('sliders do not render when user logged out', () => {
+    useUser.mockReturnValue({ user, signIn, signOut});
+    render(
+      <HomePage />
+    );
+
+    const formBox = screen.queryByTestId('formbox');
+    expect(formBox).not.toBeInTheDocument();
+    const sliders = screen.queryByTestId('sliders');
+    expect(sliders).not.toBeInTheDocument();
+
+    
+  })
+});
+describe('playlist when sliders are zero', () => {
+  const user = {
+    providerId: 'firebase',
+    proactiveRefresh: {},
+    reloadUserInfo: {},
+    reloadListener: null,
+    uid: 'LRI8P6tBCTMO3Bfpi4aRscO5OGx1',
+    // Add other properties as needed
+  };
+  const signIn = jest.fn();
+  const signOut = jest.fn();
+
+  it('renders the FormBox component with sliders all set to zero', async() => {
+    useUser.mockReturnValue({ user, signIn, signOut });
+    render(<FormBox />);
+    
+    // Check if sliders are rendered
+    const sliders = screen.getByTestId('sliders');
+    expect(sliders).toBeInTheDocument();
+
+    // Check if all sliders have a value of zero
+    const sliderInputs = screen.getAllByRole('slider');
+    sliderInputs.forEach((sliderInput) => {
+      expect(sliderInput.value).toBe('0');
+      
+    });
+    const analyzeButton = screen.getByText('Analyze Your Skills');
+    fireEvent.click(analyzeButton);
+
+    // Check if the playlist component is rendered
+    await waitFor(() => {
+      const playlistComponentAfterDone = screen.getByTestId('playlist');
+      expect(playlistComponentAfterDone).toBeInTheDocument();
+    });
+
+    // Check the count of playlist items
+  });
+    
+
+    
+
+    
+
+    
+
+
+
+
+
+
+
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Tanya Test 1: user login required to render page with sliders and spidergraph 
 describe('Formbox Test 1', () => {

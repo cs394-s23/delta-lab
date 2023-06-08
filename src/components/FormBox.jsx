@@ -122,7 +122,7 @@ const FormBox = () => {
    
     <div className="content">
       <div className="side">
-      <div className='sliders' data-testid="practice-sliders">
+      <div className='sliders' data-testid="sliders">
       <div className='slider'>
         <div onClick={handleClickDiv1} className="box" id="blue">People </div>
           <div className="skillsList" style={divStyle1} ref={divRef1}>
@@ -176,7 +176,7 @@ const FormBox = () => {
       </div>
       
       {done && (
-        <div className>
+        <div data-testid="playlist">
           <Element name='playlist' className='playlist'>
               <Playlist leastValues={lowestKeys} data-testid='playlist-component'/>
           </Element>

@@ -103,7 +103,7 @@ const HomePage = () => {
           </Link>
         </div>
         {buttonClicked && (
-          <Element name='formBox' className='container'>
+          <Element name='formBox' className='container' data-testid="formbox">
             <FormBox />
           </Element>
         )}
