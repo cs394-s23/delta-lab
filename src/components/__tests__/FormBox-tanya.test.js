@@ -1,8 +1,7 @@
-import { render, screen, fireEvent, waitFor, getByTestId } from '@testing-library/react';
+import { render, screen, fireEvent} from '@testing-library/react';
 
 import { useUser } from '../../context/AuthContext';
 import HomePage from '../HomePage';
-import App from '../../App';
 import FormBox from '../FormBox';
 
 
