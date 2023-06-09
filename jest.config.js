@@ -15,4 +15,5 @@ module.exports = {
     ['@babel/preset-react', {runtime: 'automatic'}],
   ],
   maxWorkers: 1,
+  testEnvironment: 'jest-environment-jsdom',
 };
